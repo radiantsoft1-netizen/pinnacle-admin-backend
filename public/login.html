@@ -6,7 +6,7 @@
   <title>Pinnacle Admin Login</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -17,213 +17,263 @@
     html, body {
       height: 100%;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #FFFFFF;
     }
 
-    .login-container {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* LEFT SIDE - building image, fully visible, no overlay (hidden on mobile) */
-    .left-side {
-      display: none;
+    body {
       position: relative;
-      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .left-overlay {
-      position: absolute;
-      bottom: 60px;
-      left: 50px;
-      right: 50px;
-      color: #FFFFFF;
-    }
-
-    .left-overlay h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-    }
-
-    .left-overlay p {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: #F4C430;
-      text-transform: uppercase;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    }
-
-    /* RIGHT SIDE - glassmorphism panel */
-    .right-side {
-      flex: 1;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-      background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+      padding: 24px;
+      overflow: hidden;
+      background: #10192B;
     }
 
-    .form-wrapper {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      padding: 30px;
+    /* Animated gradient mesh background */
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(244, 196, 48, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(52, 152, 219, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 80% 85%, rgba(244, 196, 48, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(44, 62, 80, 0.4) 0%, transparent 50%),
+        linear-gradient(160deg, #0D1524 0%, #16243B 55%, #0D1524 100%);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      0%   { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+      100% { background-position: 3% 4%, -3% -4%, -4% 3%, 4% -3%, 0% 0%; }
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 420px;
-      animation: slideUp 0.5s ease-out;
+      max-width: 400px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.04),
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+      padding: 44px 36px;
+      animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    .logo {
+    /* Mark + wordmark */
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
-    .logo h1 {
-      color: #2C3E50;
-      font-size: 28px;
-      margin-bottom: 5px;
-      font-weight: 700;
+    .mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #2C3E50 0%, #1A2634 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(44, 62, 80, 0.35);
     }
 
-    .logo p {
-      color: #F4C430;
+    .mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand h1 {
+      color: #16243B;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .brand p {
+      color: #8A94A3;
       font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 1px;
+      font-weight: 500;
     }
 
+    /* Demo credentials chip */
+    .demo-chip {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #FAFAF7;
+      border: 1px dashed #E8D9A8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 28px;
+      font-size: 12.5px;
+      color: #6B5B2E;
+      line-height: 1.6;
+    }
+
+    .demo-chip .dot {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #F4C430;
+      margin-top: 6px;
+      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.2);
+    }
+
+    .demo-chip code {
+      background: #FFFFFF;
+      border: 1px solid #EEE4C8;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Courier New', monospace;
+      font-size: 11.5px;
+      color: #16243B;
+    }
+
+    /* Form */
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     label {
       display: block;
-      color: #2C3E50;
-      font-weight: 500;
-      margin-bottom: 8px;
-      font-size: 14px;
+      color: #16243B;
+      font-weight: 600;
+      margin-bottom: 7px;
+      font-size: 13px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 17px;
+      height: 17px;
+      stroke: #A6AEBB;
+      pointer-events: none;
+      transition: stroke 0.2s;
     }
 
     input {
       width: 100%;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-      color: #2C3E50;
+      padding: 12px 14px 12px 40px;
+      background: #F7F8FA;
+      border: 1.5px solid #EEF0F3;
+      border-radius: 10px;
+      color: #16243B;
       font-size: 14px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      transition: all 0.3s;
+      transition: all 0.2s;
     }
 
     input::placeholder {
-      color: #8C9BA8;
+      color: #ADB5BF;
     }
 
     input:focus {
       outline: none;
       border-color: #F4C430;
-      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
-      background: rgba(255, 255, 255, 0.98);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(244, 196, 48, 0.14);
+    }
+
+    input:focus + svg,
+    .input-wrap:focus-within svg {
+      stroke: #E8B820;
     }
 
     .button {
       width: 100%;
-      padding: 12px 24px;
-      background: #F4C430;
-      color: #2C3E50;
+      padding: 13px;
+      background: linear-gradient(135deg, #F4C430 0%, #E8B820 100%);
+      color: #16243B;
       border: none;
-      border-radius: 8px;
-      font-weight: 600;
+      border-radius: 10px;
+      font-weight: 700;
       font-size: 15px;
       cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 10px;
+      transition: all 0.25s;
+      margin-top: 8px;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow: 0 4px 14px rgba(244, 196, 48, 0.3);
     }
 
     .button:hover {
-      background: #E8B820;
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(244, 196, 48, 0.3);
+      box-shadow: 0 10px 24px rgba(244, 196, 48, 0.42);
     }
 
     .button:active {
       transform: translateY(0);
     }
 
+    .button:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none;
+    }
+
     .message {
-      font-size: 14px;
-      margin-top: 15px;
-      padding: 12px 16px;
-      border-radius: 8px;
+      font-size: 13px;
+      margin-top: 14px;
+      padding: 11px 14px;
+      border-radius: 10px;
       text-align: center;
       display: none;
+      font-weight: 500;
     }
 
     .error {
-      color: #E74C3C;
-      background: rgba(231, 76, 60, 0.1);
-      border: 1px solid rgba(231, 76, 60, 0.3);
+      color: #C0392B;
+      background: #FDEEEC;
+      border: 1px solid #F6D2CD;
       display: block !important;
     }
 
     .success {
-      color: #27AE60;
-      background: rgba(39, 174, 96, 0.1);
-      border: 1px solid rgba(39, 174, 96, 0.3);
+      color: #1E8449;
+      background: #EAF8EF;
+      border: 1px solid #C9EDD5;
       display: block !important;
-    }
-
-    .info-box {
-      background: rgba(244, 196, 48, 0.1);
-      border: 1px solid rgba(244, 196, 48, 0.3);
-      padding: 12px 16px;
-      border-radius: 8px;
-      margin-bottom: 24px;
-      font-size: 13px;
-      color: #2C3E50;
-      line-height: 1.6;
-    }
-
-    .info-box strong {
-      display: block;
-      margin-bottom: 8px;
-      color: #2C3E50;
-    }
-
-    .info-box code {
-      background: rgba(255, 255, 255, 0.7);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
     }
 
     .loading {
       display: none;
-      text-align: center;
-      color: #2C3E50;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #16243B;
       font-size: 14px;
     }
 
@@ -231,115 +281,90 @@
       display: inline-block;
       width: 14px;
       height: 14px;
-      border: 2px solid #2C3E50;
+      border: 2px solid #16243B;
       border-top: 2px solid transparent;
       border-radius: 50%;
       animation: spin 0.6s linear infinite;
-      margin-right: 8px;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    /* TABLET: 768px - 1199px */
-    @media (min-width: 768px) {
-      .login-container {
-        flex-direction: row;
-        height: 100vh;
-      }
-
-      .left-side {
-        display: block;
-        width: 40%;
-      }
-
-      .right-side {
-        width: 60%;
-        background: linear-gradient(135deg, rgba(44, 62, 80, 0.3), rgba(52, 73, 94, 0.3));
-      }
-
-      .form-wrapper {
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border-radius: 16px;
-      }
-
-      .logo h1,
-      .logo p,
-      label {
-        color: #2C3E50;
-      }
+    .footer-note {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 12px;
+      color: #B7BFCB;
     }
 
-    /* DESKTOP: 1200px+ */
-    @media (min-width: 1200px) {
-      .left-side {
-        width: 50%;
-      }
-
-      .right-side {
-        width: 50%;
-        padding: 40px;
-      }
-
-      .form-wrapper {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        padding: 50px;
-        max-width: 450px;
+    @media (max-width: 420px) {
+      .card {
+        padding: 34px 24px;
+        border-radius: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <!-- LEFT SIDE (image, fully visible) -->
-    <div class="left-side">
-      <div class="left-overlay">
-        <h2>Pinnacle Design | Build</h2>
-        <p>Admin Panel</p>
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <div class="card">
+    <div class="brand">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L21 19H3L12 3Z" fill="#F4C430"/>
+          <path d="M12 10L16.5 19H7.5L12 10Z" fill="#16243B"/>
+        </svg>
       </div>
+      <h1>Pinnacle Admin</h1>
+      <p>Sign in to manage your site</p>
     </div>
 
-    <!-- RIGHT SIDE (glassmorphism form) -->
-    <div class="right-side">
-      <div class="form-wrapper">
-        <div class="logo">
-          <h1>Pinnacle</h1>
-          <p>ADMIN LOGIN</p>
-        </div>
-
-        <div class="info-box">
-          <strong>📝 Demo Credentials:</strong>
-          Email: <code>admin@pinnaclebuild.com</code><br>
-          Password: <code>Pinnacle123!</code>
-        </div>
-
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="admin@pinnaclebuild.com" required autocomplete="email">
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter password" required autocomplete="current-password">
-          </div>
-
-          <button type="submit" class="button">
-            <span class="button-text">Login</span>
-            <span class="loading">
-              <span class="spinner"></span>Logging in...
-            </span>
-          </button>
-
-          <div id="message" class="message"></div>
-        </form>
-      </div>
+    <div class="demo-chip">
+      <span class="dot"></span>
+      <span>
+        <strong>Demo credentials —</strong><br>
+        <code>admin@pinnaclebuild.com</code> / <code>Pinnacle123!</code>
+      </span>
     </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v16H4z" stroke="none"/>
+            <path d="M22 6l-10 7L2 6"/>
+            <path d="M2 6h20v12H2z"/>
+          </svg>
+          <input type="email" id="email" placeholder="admin@pinnaclebuild.com" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="11" width="14" height="10" rx="2"/>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+          </svg>
+          <input type="password" id="password" placeholder="Enter password" required autocomplete="current-password">
+        </div>
+      </div>
+
+      <button type="submit" class="button">
+        <span class="button-text">Login</span>
+        <span class="loading">
+          <span class="spinner"></span>Logging in&hellip;
+        </span>
+      </button>
+
+      <div id="message" class="message"></div>
+    </form>
+
+    <p class="footer-note">© 2026 Pinnacle Design &amp; Build</p>
   </div>
 
   <script>
@@ -356,7 +381,7 @@
       // Show loading state
       button.disabled = true;
       buttonText.style.display = 'none';
-      loading.style.display = 'inline';
+      loading.style.display = 'inline-flex';
 
       try {
         const response = await fetch('/api/auth/login', {
