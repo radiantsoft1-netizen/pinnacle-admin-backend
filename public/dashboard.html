@@ -6,7 +6,7 @@
   <title>Pinnacle Admin Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,51 +14,60 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     html, body {
       height: 100%;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F8F9FA;
-      color: #2C3E50;
+      font-family: 'Inter', "Segoe UI", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, #0F172A 0%, #1A2942 100%);
+      color: #E0E0E0;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
+    a { text-decoration: none; }
+
     /* HEADER */
     .header {
-      background: #2C3E50;
-      color: #FFFFFF;
-      height: 60px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 0 40px;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
     }
 
     .header-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
     }
 
     .menu-toggle {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       background: transparent;
       border: none;
-      color: #FFFFFF;
+      color: #E0E0E0;
       cursor: pointer;
-      border-radius: 4px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
     }
 
     .menu-toggle:hover {
@@ -71,42 +80,69 @@
     }
 
     .logo {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 700;
-      color: #F4C430;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #F4C430, #E8B820);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     .user-info {
       display: flex;
-      align-items: center;
-      gap: 16px;
+      flex-direction: column;
+      align-items: flex-end;
+      line-height: 1.3;
+    }
+
+    .user-info .greet {
+      font-size: 12px;
+      color: #A0A0A0;
     }
 
     .user-info .email {
       font-size: 14px;
       color: #FFFFFF;
-    }
-
-    .user-info .email strong {
       font-weight: 600;
     }
 
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F4C430, #E8B820);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2C3E50;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
     .logout-btn {
-      background: transparent;
-      color: #FFFFFF;
-      border: 1px solid #FFFFFF;
-      padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
+      background: linear-gradient(135deg, #F4C430, #E8B820);
+      color: #2C3E50;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600;
       font-size: 13px;
       font-family: inherit;
-      transition: all 0.2s;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
     .logout-btn:hover {
-      background: #F4C430;
-      color: #2C3E50;
-      border-color: #F4C430;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(244, 196, 48, 0.3);
     }
 
     /* LAYOUT */
@@ -120,58 +156,134 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 199;
     }
 
     .sidebar {
-      width: 200px;
-      background: #F8F9FA;
-      border-right: 1px solid #E0E0E0;
-      padding: 20px 0;
+      width: 260px;
       flex-shrink: 0;
+      position: sticky;
+      top: 70px;
+      align-self: flex-start;
+      height: calc(100vh - 70px);
+      background: rgba(20, 30, 60, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px 0;
+      overflow-y: auto;
     }
 
     .nav-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 20px;
-      color: #2C3E50;
+      gap: 12px;
+      padding: 15px 25px;
+      margin: 5px 10px;
+      color: #A0A0A0;
       font-size: 14px;
-      text-decoration: none;
+      font-weight: 500;
       cursor: pointer;
-      transition: background 0.2s;
+      border-radius: 8px;
+      border-left: 3px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .nav-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
     }
 
     .nav-item:hover {
-      background: #E8E8E8;
+      color: #F4C430;
+      background: rgba(244, 196, 48, 0.1);
+      padding-left: 30px;
     }
 
     .nav-item.active {
-      background: #F4C430;
-      color: #2C3E50;
+      color: #FFFFFF;
+      background: linear-gradient(90deg, rgba(244, 196, 48, 0.2), transparent);
+      border-left: 3px solid #F4C430;
+      padding-left: 22px;
       font-weight: 600;
     }
 
     /* MAIN CONTENT */
     .main-content {
       flex: 1;
-      padding: 30px;
       min-width: 0;
+      padding: 40px;
+    }
+
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px;
     }
 
     .page-title {
-      font-size: 24px;
+      font-size: 32px;
       font-weight: 700;
-      color: #2C3E50;
-      margin-bottom: 6px;
+      color: #FFFFFF;
+      margin-bottom: 5px;
     }
 
     .page-subtitle {
       font-size: 14px;
-      color: #666666;
-      margin-bottom: 28px;
+      color: #A0A0A0;
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 240px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-family: inherit;
+      transition: 0.2s ease;
+    }
+
+    .search-input::placeholder {
+      color: #777777;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #F4C430;
+      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #F4C430, #E8B820);
+      color: #2C3E50;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(244, 196, 48, 0.3);
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244, 196, 48, 0.4);
     }
 
     /* STATS GRID */
@@ -179,65 +291,109 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .stat-card {
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: box-shadow 0.3s;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
     }
 
     .stat-card:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 48px rgba(244, 196, 48, 0.15);
+      border-color: rgba(244, 196, 48, 0.3);
+    }
+
+    .stat-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
     }
 
     .stat-icon {
-      font-size: 22px;
-      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(244, 196, 48, 0.2), rgba(244, 196, 48, 0.05));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .stat-label {
-      font-size: 12px;
-      color: #666666;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .stat-value {
-      font-size: 30px;
-      font-weight: 700;
-      color: #2C3E50;
-      margin-bottom: 6px;
+    .stat-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #F4C430;
     }
 
     .stat-trend {
       font-size: 12px;
-      color: #999999;
+      font-weight: 600;
+      color: #6B7280;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #A0A0A0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .stat-subtitle {
+      font-size: 13px;
+      color: #A0A0A0;
     }
 
     /* SECTIONS */
     .section {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 18px;
-      font-weight: 600;
-      color: #2C3E50;
-      margin-bottom: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+
+    .section-title svg {
+      width: 20px;
+      height: 20px;
+      stroke: #F4C430;
     }
 
     .table-card {
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .table-scroll {
       overflow-x: auto;
     }
 
@@ -247,29 +403,39 @@
     }
 
     thead {
-      background: #F8F9FA;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     th {
       text-align: left;
-      padding: 15px;
-      border-bottom: 1px solid #E0E0E0;
-      font-weight: 600;
-      font-size: 13px;
-      color: #2C3E50;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      font-weight: 700;
+      color: #F4C430;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     td {
-      padding: 15px;
-      border-bottom: 1px solid #F0F0F0;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       font-size: 14px;
-      color: #2C3E50;
+      color: #E0E0E0;
+    }
+
+    td strong {
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    tbody tr {
+      transition: 0.3s ease;
     }
 
     tbody tr:hover {
-      background: #F9F9F9;
+      background: rgba(244, 196, 48, 0.05);
     }
 
     tbody tr:last-child td {
@@ -278,93 +444,87 @@
 
     .badge {
       display: inline-block;
-      padding: 4px 10px;
-      border-radius: 12px;
+      padding: 6px 12px;
+      border-radius: 6px;
       font-size: 12px;
       font-weight: 600;
     }
 
-    .badge-new { background: #D4EDDA; color: #155724; }
-    .badge-pending { background: #FFF3CD; color: #856404; }
-    .badge-completed { background: #D1ECF1; color: #0C5460; }
-    .badge-inactive { background: #F8D7DA; color: #721C24; }
+    .badge-new { background: rgba(16, 185, 129, 0.1); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-pending { background: rgba(244, 196, 48, 0.1); color: #F4C430; border: 1px solid rgba(244, 196, 48, 0.3); }
+    .badge-completed { background: rgba(59, 130, 246, 0.1); color: #3B82F6; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-inactive { background: rgba(107, 114, 128, 0.1); color: #9CA3AF; border: 1px solid rgba(107, 114, 128, 0.3); }
 
     .btn-small {
       padding: 6px 12px;
-      border-radius: 4px;
+      border-radius: 6px;
       font-size: 12px;
       font-family: inherit;
       cursor: pointer;
-      background: transparent;
-      transition: all 0.2s;
+      transition: 0.3s ease;
       margin-right: 6px;
+      background: transparent;
     }
 
-    .btn-view { color: #2C3E50; border: 1px solid #2C3E50; }
-    .btn-view:hover { background: #2C3E50; color: #FFFFFF; }
+    .btn-view { background: rgba(59, 130, 246, 0.1); color: #3B82F6; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .btn-view:hover { background: #3B82F6; color: #FFFFFF; }
 
-    .btn-edit { color: #E8B820; border: 1px solid #E8B820; }
-    .btn-edit:hover { background: #E8B820; color: #FFFFFF; }
+    .btn-edit { background: rgba(244, 196, 48, 0.1); color: #F4C430; border: 1px solid rgba(244, 196, 48, 0.3); }
+    .btn-edit:hover { background: #F4C430; color: #2C3E50; }
 
-    .btn-delete { color: #E74C3C; border: 1px solid #E74C3C; }
-    .btn-delete:hover { background: #E74C3C; color: #FFFFFF; }
+    .btn-delete { background: rgba(239, 68, 68, 0.1); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .btn-delete:hover { background: #EF4444; color: #FFFFFF; }
 
     /* EMPTY STATE */
     .empty-state {
       text-align: center;
-      padding: 48px 20px;
-      color: #999999;
+      padding: 60px 20px;
     }
 
     .empty-state .icon {
-      font-size: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      opacity: 0.5;
     }
 
-    .empty-state p {
-      font-size: 14px;
+    .empty-state .icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: #A0A0A0;
     }
 
-    /* BUTTONS (general) */
-    .btn-primary {
-      background: #F4C430;
-      color: #2C3E50;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
+    .empty-state .title {
+      font-size: 18px;
       font-weight: 600;
-      font-size: 14px;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all 0.3s;
+      color: #FFFFFF;
+      margin-bottom: 8px;
     }
 
-    .btn-primary:hover {
-      background: #E8B820;
-      transform: translateY(-2px);
+    .empty-state .desc {
+      font-size: 14px;
+      color: #A0A0A0;
     }
 
     /* FOOTER */
     .footer {
-      background: #F8F9FA;
-      border-top: 1px solid #E0E0E0;
-      padding: 20px 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 25px 40px;
       text-align: center;
-      color: #666666;
-      font-size: 12px;
+      color: #A0A0A0;
+      font-size: 13px;
     }
 
-    /* TABLET: hide sidebar, collapse to hamburger */
+    /* TABLET: sidebar collapses to off-canvas hamburger */
     @media (max-width: 1199px) {
       .sidebar {
         position: fixed;
-        top: 60px;
+        top: 70px;
         left: 0;
         bottom: 0;
+        height: calc(100vh - 70px);
         z-index: 200;
         transform: translateX(-100%);
         transition: transform 0.25s ease;
-        overflow-y: auto;
       }
 
       .sidebar.open {
@@ -373,6 +533,10 @@
 
       .sidebar-overlay.open {
         display: block;
+      }
+
+      .main-content {
+        padding: 30px;
       }
     }
 
@@ -391,6 +555,10 @@
 
     /* MOBILE */
     @media (max-width: 767px) {
+      .header {
+        padding: 0 16px;
+      }
+
       .main-content {
         padding: 20px;
       }
@@ -399,12 +567,17 @@
         grid-template-columns: 1fr;
       }
 
-      .header {
-        padding: 0 16px;
+      .user-info {
+        display: none;
       }
 
-      .user-info .email {
-        display: none;
+      .action-bar {
+        width: 100%;
+      }
+
+      .search-input {
+        flex: 1;
+        width: auto;
       }
     }
   </style>
@@ -420,10 +593,14 @@
           <path d="M3 18h18"/>
         </svg>
       </button>
-      <div class="logo">Pinnacle Admin</div>
+      <div class="logo">Pinnacle</div>
     </div>
-    <div class="user-info">
-      <span class="email">Welcome, <strong id="userEmail">Loading...</strong></span>
+    <div class="header-right">
+      <div class="user-info">
+        <span class="greet">Welcome back</span>
+        <span class="email" id="userEmail">Loading...</span>
+      </div>
+      <div class="avatar" id="userAvatar">P</div>
       <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
   </header>
@@ -432,86 +609,152 @@
     <!-- SIDEBAR -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <aside class="sidebar" id="sidebar">
-      <a class="nav-item active" href="#dashboard">📊 Dashboard</a>
-      <a class="nav-item" href="#contacts">👥 Contacts</a>
-      <a class="nav-item" href="#quotes">💰 Quotes</a>
-      <a class="nav-item" href="#projects">📄 Projects</a>
-      <a class="nav-item" href="#settings">⚙️ Settings</a>
+      <a class="nav-item active" href="#dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="#contacts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Contacts
+      </a>
+      <a class="nav-item" href="#quotes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Quotes
+      </a>
+      <a class="nav-item" href="#projects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Projects
+      </a>
+      <a class="nav-item" href="#analytics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        Analytics
+      </a>
+      <a class="nav-item" href="#settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </a>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <h1 class="page-title">Dashboard</h1>
-      <p class="page-subtitle">Overview of your Pinnacle Design | Build site</p>
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle">Overview of your Pinnacle Design | Build site</p>
+        </div>
+        <div class="action-bar">
+          <input type="text" class="search-input" placeholder="Search...">
+          <button class="btn-primary">+ Add New</button>
+        </div>
+      </div>
 
       <!-- STATS -->
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-icon">👥</div>
+          <div class="stat-card-header">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="stat-trend">No data yet</div>
+          </div>
           <div class="stat-label">Total Contacts</div>
           <div class="stat-value">0</div>
-          <div class="stat-trend">No data yet</div>
+          <div class="stat-subtitle">Awaiting first inquiry</div>
         </div>
+
         <div class="stat-card">
-          <div class="stat-icon">💰</div>
+          <div class="stat-card-header">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="stat-trend">No data yet</div>
+          </div>
           <div class="stat-label">New Quotes</div>
           <div class="stat-value">0</div>
-          <div class="stat-trend">No data yet</div>
+          <div class="stat-subtitle">Awaiting first quote</div>
         </div>
+
         <div class="stat-card">
-          <div class="stat-icon">📄</div>
+          <div class="stat-card-header">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="stat-trend">No data yet</div>
+          </div>
           <div class="stat-label">Active Projects</div>
           <div class="stat-value">0</div>
-          <div class="stat-trend">No data yet</div>
+          <div class="stat-subtitle">No projects logged</div>
         </div>
+
         <div class="stat-card">
-          <div class="stat-icon">👤</div>
+          <div class="stat-card-header">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="stat-trend">No data yet</div>
+          </div>
           <div class="stat-label">Team Members</div>
           <div class="stat-value">0</div>
-          <div class="stat-trend">No data yet</div>
+          <div class="stat-subtitle">No team members added</div>
         </div>
       </div>
 
       <!-- RECENT CONTACTS -->
       <div class="section">
-        <h2 class="section-title">Recent Contacts</h2>
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Recent Contacts
+        </h2>
         <div class="table-card">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-          </table>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
           <div class="empty-state">
-            <div class="icon">📭</div>
-            <p>No contact inquiries yet</p>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+            </div>
+            <div class="title">No contact inquiries yet</div>
+            <div class="desc">Submissions from your website's contact form will appear here.</div>
           </div>
         </div>
       </div>
 
       <!-- RECENT QUOTES -->
       <div class="section">
-        <h2 class="section-title">Recent Quotes</h2>
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Recent Quotes
+        </h2>
         <div class="table-card">
-          <table>
-            <thead>
-              <tr>
-                <th>Project Type</th>
-                <th>Estimate</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-          </table>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Project Type</th>
+                  <th>Estimate</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
           <div class="empty-state">
-            <div class="icon">📭</div>
-            <p>No calculator quotes yet</p>
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+            </div>
+            <div class="title">No calculator quotes yet</div>
+            <div class="desc">Estimates submitted through your cost calculator will appear here.</div>
           </div>
         </div>
       </div>
@@ -539,6 +782,7 @@
         if (response.ok) {
           const user = await response.json();
           document.getElementById('userEmail').textContent = user.email;
+          document.getElementById('userAvatar').textContent = user.email.charAt(0).toUpperCase();
         } else {
           logout();
         }
