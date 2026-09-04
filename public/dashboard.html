@@ -33,6 +33,14 @@
 
     a { text-decoration: none; }
 
+    /* Single sticky wrapper holding both the top bar and the tab nav,
+       so they can never drift out of sync with independent sticky offsets */
+    .page-head {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
     /* TOP BAR */
     .topbar {
       background: rgba(255, 255, 255, 0.75);
@@ -44,9 +52,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 40px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
       box-shadow: 0 4px 30px rgba(26, 43, 95, 0.06);
     }
 
@@ -122,9 +127,6 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(26, 43, 95, 0.08);
-      position: sticky;
-      top: 88px;
-      z-index: 90;
       display: flex;
       gap: 6px;
       padding: 10px 40px;
@@ -601,6 +603,8 @@
   </style>
 </head>
 <body>
+  <!-- STICKY HEAD (top bar + tab nav as one unit) -->
+  <div class="page-head">
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="logo">Pinnacle</div>
@@ -641,6 +645,7 @@
       Settings
     </a>
   </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <main class="main-content">
