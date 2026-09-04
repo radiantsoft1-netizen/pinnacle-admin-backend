@@ -33,17 +33,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// UPDATE STATUS
+// UPDATE STATUS / NOTES
+// Setting status='read' stamps read_at (once); status='responded' stamps responded_at (once).
 router.put('/:id', async (req, res) => {
   try {
-    const { status } = req.body;
-    if (!status) {
-      return res.status(400).json({ error: 'Status is required' });
+    const { status, admin_notes } = req.body;
+    if (!status && admin_notes === undefined) {
+      return res.status(400).json({ error: 'status or admin_notes is required' });
     }
 
     const result = await pool.query(
-      'UPDATE contact_inquiries SET status = $1 WHERE id = $2 RETURNING *',
-      [status, req.params.id]
+      `UPDATE contact_inquiries SET
+        status = COALESCE($1, status),
+        admin_notes = COALESCE($2, admin_notes),
+        read_at = CASE WHEN COALESCE($1, status) = 'read' THEN COALESCE(read_at, CURRENT_TIMESTAMP) ELSE read_at END,
+        responded_at = CASE WHEN COALESCE($1, status) = 'responded' THEN COALESCE(responded_at, CURRENT_TIMESTAMP) ELSE responded_at END
+       WHERE id = $3 RETURNING *`,
+      [status, admin_notes, req.params.id]
     );
 
     if (result.rows.length === 0) {

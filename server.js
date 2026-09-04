@@ -9,6 +9,10 @@ import pagesRoutes from './src/routes/pages.js';
 import menusRoutes from './src/routes/menus.js';
 import contactsRoutes from './src/routes/contacts.js';
 import quotesRoutes from './src/routes/quotes.js';
+import mediaRoutes from './src/routes/media.js';
+import settingsRoutes from './src/routes/settings.js';
+import sectionsRoutes from './src/routes/sections.js';
+import publicRoutes from './src/routes/public.js';
 
 dotenv.config();
 
@@ -42,6 +46,10 @@ app.use('/api/pages', pagesRoutes);
 app.use('/api/menus', menusRoutes);
 app.use('/api/contacts', contactsRoutes);
 app.use('/api/quotes', quotesRoutes);
+app.use('/api/media', mediaRoutes);
+app.use('/api/settings', settingsRoutes);
+app.use('/api/sections', sectionsRoutes);
+app.use('/api/public', publicRoutes);
 
 // Redirect root to login
 app.get('/', (req, res) => {

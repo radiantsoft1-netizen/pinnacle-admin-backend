@@ -73,6 +73,17 @@
     padding:26px; margin-bottom:24px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 8px 32px rgba(26,43,95,0.06); }
   .section-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px; }
   .section-header h2 { margin:0; font-size:16px; font-weight:700; color:#1a2b5f; }
+  .action-bar { display:flex; gap:12px; align-items:center; }
+
+  /* ===== MEDIA LIBRARY ===== */
+  .media-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:16px; }
+  .media-card { border:1px solid rgba(26,43,95,.1); border-radius:10px; overflow:hidden; background:#fff; transition:.15s ease; }
+  .media-card:hover { box-shadow:0 8px 24px rgba(26,43,95,.1); transform:translateY(-2px); }
+  .media-thumb { width:100%; height:120px; object-fit:cover; display:block; background:#F4F6FA; }
+  .media-card-body { padding:10px 12px; }
+  .media-filename { font-size:12px; font-weight:600; color:#1a2b5f; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:6px; }
+  .media-alt-input { width:100%; padding:5px 7px; font-size:11.5px; border:1px solid rgba(26,43,95,.12); border-radius:5px; margin-bottom:8px; }
+  .media-card-actions { display:flex; justify-content:flex-end; }
 
   /* ===== STAT CARDS (Dashboard) ===== */
   .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:24px; }
@@ -285,6 +296,10 @@
       <a class="tab-item" href="#" data-section="quotes">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         Quotes
+      </a>
+      <a class="tab-item" href="#" data-section="media">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Media
       </a>
       <a class="tab-item" href="#" data-section="settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -610,6 +625,29 @@
       </div>
     </section>
 
+    <!-- ================= MEDIA SECTION ================= -->
+    <section id="section-media" class="app-section">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Media Library</h1>
+          <p class="page-subtitle">Upload and manage images used across the website</p>
+        </div>
+        <div class="action-bar">
+          <input type="file" id="mediaFileInput" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" style="display:none" onchange="uploadMedia(this.files[0])">
+          <button class="btn-primary" onclick="document.getElementById('mediaFileInput').click()">⬆ Upload Image</button>
+        </div>
+      </div>
+      <div class="section-box">
+        <div class="section-header">
+          <h2>All Media</h2>
+          <button class="btn-secondary" onclick="loadMedia()">🔄 Refresh</button>
+        </div>
+        <div class="media-grid" id="mediaGrid">
+          <div class="table-empty" style="grid-column:1/-1;">📭 No images uploaded yet</div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= SETTINGS SECTION ================= -->
     <section id="section-settings" class="app-section">
       <div class="page-header">
@@ -622,9 +660,13 @@
       <div class="section-box">
         <div class="section-header"><h2>General Settings</h2></div>
         <form class="settings-form" onsubmit="saveGeneralSettings(event)">
-          <div class="form-group"><label>Site Name</label><input type="text" value="Pinnacle Design | Build" disabled></div>
+          <div class="form-group"><label>Site Name</label><input type="text" id="settingsSiteName"></div>
           <div class="form-group"><label>Admin Email</label><input type="email" id="settingsAdminEmail" disabled></div>
-          <div class="form-group"><label>Site URL</label><input type="url" value="https://pinnaclebuild-two.vercel.app" disabled></div>
+          <div class="form-group"><label>Site URL</label><input type="url" id="settingsSiteUrl"></div>
+          <div class="form-group"><label>Phone</label><input type="text" id="settingsPhone" placeholder="+1 226 507 5385"></div>
+          <div class="form-group"><label>Address</label><input type="text" id="settingsAddress" placeholder="Business address"></div>
+          <div class="form-group"><label>Facebook URL</label><input type="url" id="settingsFacebook" placeholder="https://facebook.com/..."></div>
+          <div class="form-group"><label>Instagram URL</label><input type="url" id="settingsInstagram" placeholder="https://instagram.com/..."></div>
           <button type="submit" class="btn-primary" style="align-self:flex-start;">💾 Save Settings</button>
         </form>
       </div>
@@ -747,6 +789,8 @@
           if (sectionName === 'menus') loadMenus();
           if (sectionName === 'contacts') loadContacts();
           if (sectionName === 'quotes') loadQuotes();
+          if (sectionName === 'media') loadMedia();
+          if (sectionName === 'settings') loadSettings();
         }
       });
     });
@@ -1564,11 +1608,141 @@
     }
 
     /* ============================================================
+       MEDIA LIBRARY
+       ============================================================ */
+    async function loadMedia() {
+      try {
+        const res = await fetch('/api/media', { headers: authHeaders });
+        if (!res.ok) throw new Error('Failed to load media');
+        const media = await res.json();
+        renderMediaGrid(media);
+      } catch (e) {
+        showToast('Could not load media', 'error');
+      }
+    }
+
+    function renderMediaGrid(media) {
+      const grid = document.getElementById('mediaGrid');
+      if (media.length === 0) {
+        grid.innerHTML = '<div class="table-empty" style="grid-column:1/-1;">📭 No images uploaded yet</div>';
+        return;
+      }
+      grid.innerHTML = media.map(m => `
+        <div class="media-card">
+          <img class="media-thumb" src="${escapeAttr(m.file_url)}" alt="${escapeAttr(m.alt_text || m.filename)}" loading="lazy">
+          <div class="media-card-body">
+            <div class="media-filename" title="${escapeAttr(m.filename)}">${escapeHtml(m.filename)}</div>
+            <input class="media-alt-input" value="${escapeAttr(m.alt_text || '')}" placeholder="Alt text (SEO)" onchange="updateMediaAlt(${m.id}, this.value)">
+            <div class="media-card-actions">
+              <button class="icon-btn danger" title="Delete" onclick="confirmDeleteMedia(${m.id}, '${escapeAttr(m.filename)}')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function uploadMedia(file) {
+      if (!file) return;
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('/api/media/upload', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${token}` }, // no Content-Type — browser sets multipart boundary
+          body: formData
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Upload failed');
+
+        showToast('Image uploaded');
+        document.getElementById('mediaFileInput').value = '';
+        await loadMedia();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    async function updateMediaAlt(id, alt_text) {
+      try {
+        const res = await fetch(`/api/media/${id}`, { method: 'PUT', headers: authHeaders, body: JSON.stringify({ alt_text }) });
+        if (!res.ok) throw new Error('Could not save alt text');
+        showToast('Alt text updated');
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    function confirmDeleteMedia(id, filename) {
+      document.getElementById('confirmTitle').textContent = `Delete "${filename}"?`;
+      document.getElementById('confirmText').textContent = 'This cannot be undone. If this image is used in a page section, deletion will be blocked unless forced.';
+      document.getElementById('confirmActionBtn').onclick = () => deleteMedia(id);
+      openModal('confirmModal');
+    }
+
+    async function deleteMedia(id, force) {
+      try {
+        const res = await fetch(`/api/media/${id}${force ? '?force=true' : ''}`, { method: 'DELETE', headers: authHeaders });
+        const data = await res.json();
+
+        if (res.status === 409) {
+          closeModal('confirmModal');
+          if (confirm(`${data.error}. Delete anyway?`)) {
+            await deleteMedia(id, true);
+          }
+          return;
+        }
+        if (!res.ok) throw new Error(data.error || 'Delete failed');
+
+        closeModal('confirmModal');
+        showToast('Image deleted');
+        await loadMedia();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    /* ============================================================
        SETTINGS
        ============================================================ */
-    function saveGeneralSettings(e) {
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/settings', { headers: authHeaders });
+        if (!res.ok) throw new Error('Failed to load settings');
+        const data = await res.json();
+        const s = data.settings || {};
+        document.getElementById('settingsSiteName').value = s.site_name || 'Pinnacle Design | Build';
+        document.getElementById('settingsSiteUrl').value = s.site_url || 'https://pinnaclebuild-two.vercel.app';
+        document.getElementById('settingsPhone').value = s.phone || '';
+        document.getElementById('settingsAddress').value = s.address || '';
+        document.getElementById('settingsFacebook').value = s.facebook_url || '';
+        document.getElementById('settingsInstagram').value = s.instagram_url || '';
+      } catch (e) {
+        showToast('Could not load settings', 'error');
+      }
+    }
+
+    async function saveGeneralSettings(e) {
       e.preventDefault();
-      showToast("General settings aren't editable yet — coming in a future update", 'error');
+      const settings = {
+        site_name: document.getElementById('settingsSiteName').value,
+        site_url: document.getElementById('settingsSiteUrl').value,
+        phone: document.getElementById('settingsPhone').value,
+        address: document.getElementById('settingsAddress').value,
+        facebook_url: document.getElementById('settingsFacebook').value,
+        instagram_url: document.getElementById('settingsInstagram').value
+      };
+
+      try {
+        const res = await fetch('/api/settings', { method: 'PUT', headers: authHeaders, body: JSON.stringify({ settings }) });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Could not save settings');
+        showToast('Settings saved');
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
     }
 
     async function changePassword(e) {

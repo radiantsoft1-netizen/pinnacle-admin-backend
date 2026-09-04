@@ -33,6 +33,32 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// UPDATE STATUS / NOTES
+router.put('/:id', async (req, res) => {
+  try {
+    const { status, customer_notes } = req.body;
+    if (!status && customer_notes === undefined) {
+      return res.status(400).json({ error: 'status or customer_notes is required' });
+    }
+
+    const result = await pool.query(
+      `UPDATE calculator_quotes SET
+        status = COALESCE($1, status),
+        customer_notes = COALESCE($2, customer_notes)
+       WHERE id = $3 RETURNING *`,
+      [status, customer_notes, req.params.id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Quote not found' });
+    }
+    res.json({ success: true, message: 'Quote updated', quote: result.rows[0] });
+  } catch (error) {
+    console.error('Update quote error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // DELETE
 router.delete('/:id', async (req, res) => {
   try {
