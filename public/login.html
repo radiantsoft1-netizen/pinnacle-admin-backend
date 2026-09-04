@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinnacle Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 50px;
+      width: 100%;
+      max-width: 420px;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo h1 {
+      color: #2C3E50;
+      font-size: 28px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .logo p {
+      color: #F4C430;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: #2C3E50;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #F4C430;
+      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+      background: #FFFEF9;
+    }
+
+    .button {
+      width: 100%;
+      padding: 13px;
+      background: #F4C430;
+      color: #2C3E50;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .button:hover {
+      background: #E8B820;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(244, 196, 48, 0.3);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .message {
+      font-size: 14px;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+    }
+
+    .error {
+      color: #C0392B;
+      background: #FADBD8;
+      border: 1px solid #E74C3C;
+      display: block !important;
+    }
+
+    .success {
+      color: #27AE60;
+      background: #D5F4E6;
+      border: 1px solid #27AE60;
+      display: block !important;
+    }
+
+    .info-box {
+      background: #EBF5FB;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      border-left: 4px solid #3498DB;
+      font-size: 13px;
+      color: #2C3E50;
+      line-height: 1.6;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #2C3E50;
+    }
+
+    .info-box code {
+      background: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      color: #F4C430;
+      font-size: 14px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #F4C430;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-right: 8px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <h1>Pinnacle</h1>
+      <p>ADMIN PANEL</p>
+    </div>
+
+    <div class="info-box">
+      <strong>📝 Demo Credentials:</strong>
+      Email: <code>admin@pinnaclebuild.com</code><br>
+      Password: <code>Pinnacle123!</code>
+    </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="admin@pinnaclebuild.com" required autocomplete="email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="button">
+        <span class="button-text">Login</span>
+        <span class="loading">
+          <span class="spinner"></span>Logging in...
+        </span>
+      </button>
+
+      <div id="message" class="message"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const messageDiv = document.getElementById('message');
+      const button = document.querySelector('.button');
+      const buttonText = document.querySelector('.button-text');
+      const loading = document.querySelector('.loading');
+
+      // Show loading state
+      button.disabled = true;
+      buttonText.style.display = 'none';
+      loading.style.display = 'inline';
+
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          messageDiv.className = 'message success';
+          messageDiv.textContent = '✅ Login successful! Redirecting...';
+          setTimeout(() => {
+            window.location.href = '/dashboard.html';
+          }, 1000);
+        } else {
+          messageDiv.className = 'message error';
+          messageDiv.textContent = '❌ ' + (data.error || 'Login failed');
+          button.disabled = false;
+          buttonText.style.display = 'inline';
+          loading.style.display = 'none';
+        }
+      } catch (error) {
+        messageDiv.className = 'message error';
+        messageDiv.textContent = '❌ Connection error. Please try again.';
+        button.disabled = false;
+        buttonText.style.display = 'inline';
+        loading.style.display = 'none';
+      }
+    });
+
+    // Auto-fill demo credentials for convenience
+    document.getElementById('email').value = 'admin@pinnaclebuild.com';
+  </script>
+</body>
+</html>
