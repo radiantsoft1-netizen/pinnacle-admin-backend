@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 import authRoutes from './src/routes/auth.js';
 import pagesRoutes from './src/routes/pages.js';
 import menusRoutes from './src/routes/menus.js';
+import contactsRoutes from './src/routes/contacts.js';
+import quotesRoutes from './src/routes/quotes.js';
 
 dotenv.config();
 
@@ -38,6 +40,8 @@ pool.query('SELECT NOW()', (err, result) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/pages', pagesRoutes);
 app.use('/api/menus', menusRoutes);
+app.use('/api/contacts', contactsRoutes);
+app.use('/api/quotes', quotesRoutes);
 
 // Redirect root to login
 app.get('/', (req, res) => {
