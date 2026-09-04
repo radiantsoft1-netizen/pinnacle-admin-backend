@@ -24,8 +24,8 @@
 
     body {
       font-family: 'Inter', "Segoe UI", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(160deg, #0F172A 0%, #1A2942 100%);
-      color: #E0E0E0;
+      background: linear-gradient(160deg, #F4F6FA 0%, #FFFFFF 60%);
+      color: #4A5568;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -35,10 +35,10 @@
 
     /* HEADER */
     .header {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(26, 43, 95, 0.08);
       height: 70px;
       display: flex;
       align-items: center;
@@ -47,7 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 30px rgba(26, 43, 95, 0.06);
     }
 
     .header-left {
@@ -64,14 +64,14 @@
       height: 36px;
       background: transparent;
       border: none;
-      color: #E0E0E0;
+      color: #1a2b5f;
       cursor: pointer;
       border-radius: 8px;
       transition: background 0.2s ease;
     }
 
     .menu-toggle:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(26, 43, 95, 0.06);
     }
 
     .menu-toggle svg {
@@ -104,12 +104,12 @@
 
     .user-info .greet {
       font-size: 12px;
-      color: #A0A0A0;
+      color: #8A94A3;
     }
 
     .user-info .email {
       font-size: 14px;
-      color: #FFFFFF;
+      color: #1a2b5f;
       font-weight: 600;
     }
 
@@ -167,10 +167,10 @@
       top: 70px;
       align-self: flex-start;
       height: calc(100vh - 70px);
-      background: rgba(20, 30, 60, 0.6);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-right: 1px solid rgba(26, 43, 95, 0.08);
       padding: 30px 0;
       overflow-y: auto;
     }
@@ -181,7 +181,7 @@
       gap: 12px;
       padding: 15px 25px;
       margin: 5px 10px;
-      color: #A0A0A0;
+      color: #6B7280;
       font-size: 14px;
       font-weight: 500;
       cursor: pointer;
@@ -197,13 +197,13 @@
     }
 
     .nav-item:hover {
-      color: #F4C430;
+      color: #E8B820;
       background: rgba(244, 196, 48, 0.1);
       padding-left: 30px;
     }
 
     .nav-item.active {
-      color: #FFFFFF;
+      color: #1a2b5f;
       background: linear-gradient(90deg, rgba(244, 196, 48, 0.2), transparent);
       border-left: 3px solid #F4C430;
       padding-left: 22px;
@@ -229,13 +229,13 @@
     .page-title {
       font-size: 32px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #1a2b5f;
       margin-bottom: 5px;
     }
 
     .page-subtitle {
       font-size: 14px;
-      color: #A0A0A0;
+      color: #6B7280;
     }
 
     .action-bar {
@@ -246,18 +246,18 @@
 
     .search-input {
       width: 240px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(26, 43, 95, 0.04);
+      border: 1px solid rgba(26, 43, 95, 0.12);
       padding: 10px 16px;
       border-radius: 8px;
-      color: #FFFFFF;
+      color: #1a2b5f;
       font-size: 13px;
       font-family: inherit;
       transition: 0.2s ease;
     }
 
     .search-input::placeholder {
-      color: #777777;
+      color: #9AA5B1;
     }
 
     .search-input:focus {
@@ -295,13 +295,13 @@
     }
 
     .stat-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.75));
+      border: 1px solid rgba(26, 43, 95, 0.08);
       border-radius: 12px;
       padding: 25px;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(26, 43, 95, 0.06);
       transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
     }
@@ -344,7 +344,7 @@
     .stat-label {
       font-size: 12px;
       font-weight: 600;
-      color: #A0A0A0;
+      color: #6B7280;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 8px;
@@ -353,13 +353,13 @@
     .stat-value {
       font-size: 32px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #1a2b5f;
       margin-bottom: 8px;
     }
 
     .stat-subtitle {
       font-size: 13px;
-      color: #A0A0A0;
+      color: #6B7280;
     }
 
     /* SECTIONS */
@@ -373,22 +373,22 @@
       gap: 10px;
       font-size: 18px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #1a2b5f;
       margin-bottom: 20px;
     }
 
     .section-title svg {
       width: 20px;
       height: 20px;
-      stroke: #F4C430;
+      stroke: #E8B820;
     }
 
     .table-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(26, 43, 95, 0.08);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(26, 43, 95, 0.06);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
@@ -403,16 +403,16 @@
     }
 
     thead {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(244, 196, 48, 0.07);
     }
 
     th {
       text-align: left;
       padding: 16px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(26, 43, 95, 0.08);
       font-size: 12px;
       font-weight: 700;
-      color: #F4C430;
+      color: #1a2b5f;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       white-space: nowrap;
@@ -420,14 +420,14 @@
 
     td {
       padding: 16px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(26, 43, 95, 0.06);
       font-size: 14px;
-      color: #E0E0E0;
+      color: #4A5568;
     }
 
     td strong {
       font-weight: 600;
-      color: #FFFFFF;
+      color: #1a2b5f;
     }
 
     tbody tr {
@@ -435,7 +435,7 @@
     }
 
     tbody tr:hover {
-      background: rgba(244, 196, 48, 0.05);
+      background: rgba(244, 196, 48, 0.06);
     }
 
     tbody tr:last-child td {
@@ -489,28 +489,28 @@
     .empty-state .icon svg {
       width: 48px;
       height: 48px;
-      stroke: #A0A0A0;
+      stroke: #9AA5B1;
     }
 
     .empty-state .title {
       font-size: 18px;
       font-weight: 600;
-      color: #FFFFFF;
+      color: #1a2b5f;
       margin-bottom: 8px;
     }
 
     .empty-state .desc {
       font-size: 14px;
-      color: #A0A0A0;
+      color: #6B7280;
     }
 
     /* FOOTER */
     .footer {
-      background: rgba(255, 255, 255, 0.05);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(26, 43, 95, 0.03);
+      border-top: 1px solid rgba(26, 43, 95, 0.08);
       padding: 25px 40px;
       text-align: center;
-      color: #A0A0A0;
+      color: #6B7280;
       font-size: 13px;
     }
 
