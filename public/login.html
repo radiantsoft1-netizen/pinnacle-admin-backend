@@ -6,7 +6,7 @@
   <title>Pinnacle Admin Login</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -20,152 +20,241 @@
       background: #FFFFFF;
     }
 
-    .login-container {
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 0;
+      background: #DCE8F5;
+    }
+
+    /* Outer frame mimicking the reference's inset card */
+    .frame {
+      width: 100%;
+      max-width: 1140px;
+      min-height: 100vh;
+      background: #FFFFFF;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      box-shadow: 0 20px 60px rgba(44, 62, 80, 0.12);
+      overflow: hidden;
     }
 
-    /* LEFT SIDE - branding content (hidden on mobile) */
+    @media (min-width: 900px) {
+      .frame {
+        min-height: 640px;
+        margin: 40px 0;
+        border-radius: 16px;
+      }
+    }
+
+    /* LEFT SIDE - headline + hexagon collage (hidden on mobile) */
     .left-side {
       display: none;
-      background: linear-gradient(160deg, #EAF0F6 0%, #DCE8F5 100%);
+      background: #EEF3F8;
+      position: relative;
+      padding: 60px 50px;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left-side h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #2C3E50;
+      line-height: 1.25;
+      margin-bottom: 56px;
+      max-width: 360px;
+    }
+
+    .hex-collage {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      height: 300px;
+    }
+
+    .hex {
+      position: absolute;
+      width: 128px;
+      height: 148px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 40px;
     }
 
-    .left-content {
-      max-width: 420px;
-      width: 100%;
-      text-align: left;
+    .hex svg {
+      width: 42%;
+      height: 42%;
     }
 
-    .left-content .logo {
-      font-size: 32px;
-      font-weight: 700;
-      color: #F4C430;
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
-    }
-
-    .left-content h1 {
-      font-size: 36px;
-      font-weight: 700;
-      color: #2C3E50;
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    .left-content p {
-      font-size: 16px;
-      color: #2C3E50;
-      opacity: 0.7;
-      margin-bottom: 40px;
-      line-height: 1.5;
-    }
-
-    .illustration {
+    .hex-main {
       width: 200px;
-      height: 200px;
+      height: 230px;
+      left: 60px;
+      top: 10px;
+      background: #F4C430;
+      z-index: 2;
     }
 
-    .illustration svg {
-      width: 100%;
-      height: 100%;
+    .hex-a {
+      width: 88px;
+      height: 100px;
+      right: 10px;
+      top: 30px;
+      background: #E67E52;
+      z-index: 3;
     }
 
-    /* RIGHT SIDE - login card container */
+    .hex-b {
+      width: 76px;
+      height: 88px;
+      right: 40px;
+      top: 130px;
+      background: #5DADE2;
+      z-index: 3;
+    }
+
+    .hex-c {
+      width: 74px;
+      height: 86px;
+      left: 0;
+      bottom: 20px;
+      background: #F4C430;
+      z-index: 3;
+    }
+
+    .hex-d {
+      width: 58px;
+      height: 68px;
+      left: 60px;
+      bottom: -14px;
+      background: #7D5FA6;
+      z-index: 4;
+    }
+
+    .hex-outline {
+      position: absolute;
+      border: 2px solid rgba(44, 62, 80, 0.15);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .hex-outline-1 {
+      width: 40px;
+      height: 46px;
+      left: 20px;
+      top: 0;
+    }
+
+    .hex-outline-2 {
+      width: 56px;
+      height: 64px;
+      right: -10px;
+      bottom: 60px;
+    }
+
+    /* RIGHT SIDE - login card */
     .right-side {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-      background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+      padding: 40px 24px;
+      background: #FFFFFF;
     }
 
     .login-card {
-      background: #FFFFFF;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      padding: 40px 30px;
       width: 100%;
-      max-width: 420px;
-      animation: slideUp 0.5s ease-out;
+      max-width: 360px;
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 56px;
     }
 
-    .card-header {
-      margin-bottom: 24px;
+    .brand-row .mark {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
     }
 
-    .card-header .brand-mark {
+    .brand-row span {
+      font-size: 19px;
+      font-weight: 700;
+      color: #2C3E50;
+    }
+
+    .login-card h2 {
+      color: #F4C430;
       font-size: 15px;
       font-weight: 700;
-      color: #F4C430;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    .card-header h2 {
+    .login-card h3 {
       color: #2C3E50;
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 700;
       margin-bottom: 10px;
     }
 
-    .card-header .subtitle {
-      color: #666666;
-      font-size: 14px;
-    }
-
-    .info-box {
-      background: #FFF8DC;
-      border-left: 4px solid #F4C430;
-      color: #2C3E50;
-      padding: 12px 16px;
-      border-radius: 4px;
-      font-size: 13px;
-      margin-bottom: 24px;
+    .login-card .desc {
+      color: #7D8894;
+      font-size: 13.5px;
       line-height: 1.6;
+      margin-bottom: 22px;
     }
 
-    .info-box code {
-      background: rgba(255, 255, 255, 0.7);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-family: 'Courier New', monospace;
+    .demo-note {
+      display: flex;
+      align-items: center;
+      gap: 7px;
       font-size: 12px;
+      color: #7D8894;
+      margin-bottom: 22px;
+    }
+
+    .demo-note .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #F4C430;
+      flex-shrink: 0;
+    }
+
+    .demo-note code {
+      background: #F5F6F8;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-family: 'SF Mono', 'Courier New', monospace;
+      font-size: 11px;
+      color: #2C3E50;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     label {
       display: block;
       color: #2C3E50;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       font-size: 13px;
     }
 
-    input {
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
-      padding: 12px 16px;
-      background: #F9F9F9;
+      padding: 11px 14px;
+      background: #FFFFFF;
       border: 1px solid #E0E0E0;
       border-radius: 6px;
       color: #2C3E50;
@@ -175,35 +264,68 @@
     }
 
     input::placeholder {
-      color: #999999;
+      color: #A6AEBB;
     }
 
     input:focus {
       outline: none;
       border-color: #F4C430;
-      background: #FFFFFF;
-      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.12);
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      font-size: 13px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #2C3E50;
+      cursor: pointer;
+    }
+
+    .remember input {
+      width: 14px;
+      height: 14px;
+      accent-color: #F4C430;
+      cursor: pointer;
+    }
+
+    .form-row a {
+      color: #E8B820;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form-row a:hover {
+      text-decoration: underline;
     }
 
     .button {
       width: 100%;
-      padding: 12px 24px;
+      padding: 13px;
       background: #F4C430;
       color: #2C3E50;
       border: none;
       border-radius: 6px;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
       cursor: pointer;
       transition: all 0.3s;
-      margin-top: 8px;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     .button:hover {
       background: #E8B820;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(244, 196, 48, 0.25);
+      box-shadow: 0 8px 20px rgba(244, 196, 48, 0.3);
     }
 
     .button:active {
@@ -211,30 +333,41 @@
     }
 
     .footer-text {
-      color: #666666;
+      color: #7D8894;
       font-size: 13px;
-      margin-top: 16px;
-      text-align: center;
+      margin-top: 22px;
+    }
+
+    .footer-text a {
+      color: #E8B820;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
     }
 
     .message {
-      font-size: 14px;
+      font-size: 13.5px;
       margin-top: 16px;
-      padding: 12px 16px;
+      padding: 11px 14px;
       border-radius: 6px;
       text-align: center;
       display: none;
     }
 
     .error {
-      color: #FFFFFF;
-      background: #E74C3C;
+      color: #C0392B;
+      background: #FDEEEC;
+      border: 1px solid #F6D2CD;
       display: block !important;
     }
 
     .success {
-      color: #FFFFFF;
-      background: #27AE60;
+      color: #1E8449;
+      background: #EAF8EF;
+      border: 1px solid #C9EDD5;
       display: block !important;
     }
 
@@ -247,13 +380,14 @@
 
     .spinner {
       display: inline-block;
-      width: 14px;
-      height: 14px;
+      width: 13px;
+      height: 13px;
       border: 2px solid #2C3E50;
       border-top: 2px solid transparent;
       border-radius: 50%;
       animation: spin 0.6s linear infinite;
       margin-right: 8px;
+      vertical-align: -2px;
     }
 
     @keyframes spin {
@@ -262,23 +396,21 @@
 
     /* TABLET: 768px - 1199px */
     @media (min-width: 768px) {
-      .login-container {
+      body {
+        padding: 20px;
+      }
+
+      .frame {
         flex-direction: row;
-        height: 100vh;
       }
 
       .left-side {
         display: flex;
-        width: 40%;
+        width: 42%;
       }
 
       .right-side {
-        width: 60%;
-        background: #F9F9F9;
-      }
-
-      .left-content h1 {
-        font-size: 30px;
+        width: 58%;
       }
     }
 
@@ -290,34 +422,56 @@
 
       .right-side {
         width: 50%;
-        padding: 40px;
-      }
-
-      .left-content h1 {
-        font-size: 36px;
-      }
-
-      .login-card {
-        padding: 50px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <!-- LEFT SIDE (branding content) -->
+  <div class="frame">
+    <!-- LEFT SIDE (headline + hexagon collage) -->
     <div class="left-side">
-      <div class="left-content">
-        <div class="logo">Pinnacle</div>
-        <h1>Admin Panel</h1>
-        <p>Manage your Pinnacle projects efficiently</p>
-        <div class="illustration">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="90" fill="#2C3E50" fill-opacity="0.06"/>
-            <path d="M40 140L85 60L115 105L135 75L160 140H40Z" fill="#2C3E50" fill-opacity="0.85"/>
-            <path d="M85 60L100 85L70 105L85 60Z" fill="#F4C430"/>
-            <rect x="55" y="140" width="14" height="20" fill="#2C3E50" fill-opacity="0.5"/>
-            <rect x="130" y="130" width="14" height="30" fill="#2C3E50" fill-opacity="0.5"/>
+      <h1>Run Every Pinnacle Project on Auto-Pilot</h1>
+
+      <div class="hex-collage">
+        <div class="hex-outline hex-outline-1"></div>
+        <div class="hex-outline hex-outline-2"></div>
+
+        <div class="hex hex-b">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/>
+            <path d="M5 21V9l7-5 7 5v12"/>
+            <path d="M9 21v-6h6v6"/>
+          </svg>
+        </div>
+
+        <div class="hex hex-a">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12l5.45-5.45a1 1 0 0 1 1.41 0L12 9.68l3.14-3.13a1 1 0 0 1 1.41 0L22 12"/>
+            <path d="M2 12v9h20v-9"/>
+            <path d="M9 21v-4a3 3 0 0 1 6 0v4"/>
+          </svg>
+        </div>
+
+        <div class="hex hex-main">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2C3E50" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6l9-4 9 4-9 4-9-4z"/>
+            <path d="M3 6v9a9 3 0 0 0 18 0V6"/>
+            <path d="M3 6v9"/>
+          </svg>
+        </div>
+
+        <div class="hex hex-c">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2C3E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18"/>
+            <path d="M9 21V9"/>
+          </svg>
+        </div>
+
+        <div class="hex hex-d">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
           </svg>
         </div>
       </div>
@@ -326,38 +480,53 @@
     <!-- RIGHT SIDE (login card) -->
     <div class="right-side">
       <div class="login-card">
-        <div class="card-header">
-          <div class="brand-mark">Pinnacle</div>
-          <h2>Admin Login</h2>
-          <p class="subtitle">Sign in to your Pinnacle Admin account</p>
+        <div class="brand-row">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L22 20H2L12 2Z" fill="#F4C430"/>
+            <path d="M12 9L17 20H7L12 9Z" fill="#2C3E50"/>
+          </svg>
+          <span>Pinnacle</span>
         </div>
 
-        <div class="info-box">
-          Demo: <code>admin@pinnaclebuild.com</code> / <code>Pinnacle123!</code>
+        <h2>Login</h2>
+        <h3>Login to your account</h3>
+        <p class="desc">Welcome back! Sign in to access the Pinnacle Admin dashboard.</p>
+
+        <div class="demo-note">
+          <span class="dot"></span>
+          <span>Demo: <code>admin@pinnaclebuild.com</code> / <code>Pinnacle123!</code></span>
         </div>
 
         <form id="loginForm">
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="admin@pinnaclebuild.com" required autocomplete="email">
+            <label for="email">Username</label>
+            <input type="email" id="email" placeholder="Email or Phone Number" required autocomplete="email">
           </div>
 
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter password" required autocomplete="current-password">
+            <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
+          </div>
+
+          <div class="form-row">
+            <label class="remember">
+              <input type="checkbox" checked>
+              Remember me
+            </label>
+            <a href="#" onclick="return false;">Reset Password?</a>
           </div>
 
           <button type="submit" class="button">
-            <span class="button-text">Login</span>
+            <span class="button-text">Sign In</span>
             <span class="loading">
-              <span class="spinner"></span>Logging in...
+              <span class="spinner"></span>Signing in...
             </span>
           </button>
 
           <div id="message" class="message"></div>
         </form>
 
-        <p class="footer-text">Don't have an account? Contact administrator</p>
+        <p class="footer-text">Don't have an account? <a href="#" onclick="return false;">Contact administrator</a></p>
       </div>
     </div>
   </div>
