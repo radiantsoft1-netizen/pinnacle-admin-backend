@@ -6,8 +6,24 @@
   <title>Pinnacle Admin Login</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #1a2b5f;
+      --yellow: #f5c518;
+      --yellow-light: #ffe14d;
+      --text: #4a5568;
+      --text-muted: #5c6b7a;
+      --border: rgba(26, 43, 95, 0.14);
+      --bg-muted: #f5f6f8;
+      --shadow-sm: 0 8px 24px -8px rgba(0, 51, 102, 0.18);
+      --shadow-gold: 0 4px 18px rgba(245, 197, 24, 0.4);
+      --radius-sm: 8px;
+      --radius-lg: 16px;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Fraunces', 'Georgia', serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,196 +32,69 @@
 
     html, body {
       height: 100%;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #FFFFFF;
     }
 
     body {
+      font-family: var(--font-sans);
+      background: var(--bg-muted);
+      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 0;
-      background: #DCE8F5;
+      padding: 24px;
     }
 
-    /* Outer frame mimicking the reference's inset card */
-    .frame {
+    .card {
       width: 100%;
-      max-width: 1140px;
-      min-height: 100vh;
+      max-width: 400px;
       background: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 20px 60px rgba(44, 62, 80, 0.12);
-      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 44px 36px;
     }
 
-    @media (min-width: 900px) {
-      .frame {
-        min-height: 640px;
-        margin: 40px 0;
-        border-radius: 16px;
-      }
-    }
-
-    /* LEFT SIDE - headline + hexagon collage (hidden on mobile) */
-    .left-side {
-      display: none;
-      background: #EEF3F8;
-      position: relative;
-      padding: 48px;
-      flex-direction: column;
-    }
-
-    .left-side h1 {
-      font-size: 32px;
-      font-weight: 800;
-      color: #2C3E50;
-      line-height: 1.25;
-      margin-bottom: 32px;
-      max-width: 360px;
-      flex-shrink: 0;
-    }
-
-    .left-image {
-      position: relative;
-      flex: 1;
-      width: 100%;
-      min-height: 0;
-    }
-
-    .left-image img {
+    .logo-mark {
       display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(44, 62, 80, 0.2);
-    }
-
-    .hex-outline {
-      position: absolute;
-      border: 2px solid rgba(44, 62, 80, 0.15);
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      z-index: 0;
-    }
-
-    .hex-outline-1 {
-      width: 40px;
-      height: 46px;
-      left: -14px;
-      top: -16px;
-    }
-
-    .hex-outline-2 {
-      width: 56px;
       height: 64px;
-      right: -18px;
-      bottom: -20px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      margin: 0 auto 24px;
     }
 
-    .hex-badge {
-      position: absolute;
-      left: -22px;
-      bottom: -22px;
-      width: 64px;
-      height: 74px;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: #F4C430;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 20px rgba(244, 196, 48, 0.35);
-      z-index: 2;
+    .card h1 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 6px;
     }
 
-    .hex-badge svg {
-      width: 40%;
-      height: 40%;
-    }
-
-    /* RIGHT SIDE - login card */
-    .right-side {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 24px;
-      background: #FFFFFF;
-    }
-
-    .login-card {
-      width: 100%;
-      max-width: 360px;
-    }
-
-    .brand-row {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 56px;
-    }
-
-    .brand-row .mark {
-      width: 26px;
-      height: 26px;
-      flex-shrink: 0;
-    }
-
-    .brand-row span {
-      font-size: 19px;
-      font-weight: 700;
-      color: #2C3E50;
-    }
-
-    .login-card h2 {
-      color: #F4C430;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .login-card h3 {
-      color: #2C3E50;
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .login-card .desc {
-      color: #7D8894;
+    .card .subtitle {
+      text-align: center;
       font-size: 13.5px;
-      line-height: 1.6;
-      margin-bottom: 22px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
     }
 
     .demo-note {
-      display: flex;
-      align-items: center;
-      gap: 7px;
+      text-align: center;
       font-size: 12px;
-      color: #7D8894;
-      margin-bottom: 22px;
-    }
-
-    .demo-note .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #F4C430;
-      flex-shrink: 0;
+      color: var(--text-muted);
+      background: var(--bg-muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      margin-bottom: 24px;
     }
 
     .demo-note code {
-      background: #F5F6F8;
-      padding: 1px 5px;
-      border-radius: 3px;
       font-family: 'SF Mono', 'Courier New', monospace;
-      font-size: 11px;
-      color: #2C3E50;
+      font-size: 11.5px;
+      color: var(--primary);
     }
 
     .form-group {
@@ -214,115 +103,76 @@
 
     label {
       display: block;
-      color: #2C3E50;
+      color: var(--primary);
       font-weight: 600;
       margin-bottom: 7px;
       font-size: 13px;
     }
 
-    input[type="email"],
-    input[type="password"] {
+    input {
       width: 100%;
       padding: 11px 14px;
       background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 6px;
-      color: #2C3E50;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--primary);
       font-size: 14px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      transition: all 0.3s;
+      font-family: var(--font-sans);
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     input::placeholder {
-      color: #A6AEBB;
+      color: #A0AAB8;
     }
 
     input:focus {
       outline: none;
-      border-color: #F4C430;
-      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.12);
-    }
-
-    .form-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 22px;
-      font-size: 13px;
-    }
-
-    .remember {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: #2C3E50;
-      cursor: pointer;
-    }
-
-    .remember input {
-      width: 14px;
-      height: 14px;
-      accent-color: #F4C430;
-      cursor: pointer;
-    }
-
-    .form-row a {
-      color: #E8B820;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .form-row a:hover {
-      text-decoration: underline;
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.18);
     }
 
     .button {
+      -webkit-appearance: none;
+      appearance: none;
       width: 100%;
       padding: 13px;
-      background: #F4C430;
-      color: #2C3E50;
-      border: none;
-      border-radius: 6px;
+      background: var(--yellow);
+      color: var(--primary);
+      border: 2px solid var(--yellow);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
       font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.5px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.3s;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.25s ease;
+      margin-top: 6px;
+      box-shadow: var(--shadow-gold);
     }
 
     .button:hover {
-      background: #E8B820;
+      border-color: var(--yellow-light);
+      background: var(--yellow-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(244, 196, 48, 0.3);
+      box-shadow: 0 6px 24px rgba(245, 197, 24, 0.5);
     }
 
     .button:active {
       transform: translateY(0);
     }
 
-    .footer-text {
-      color: #7D8894;
-      font-size: 13px;
-      margin-top: 22px;
-    }
-
-    .footer-text a {
-      color: #E8B820;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .footer-text a:hover {
-      text-decoration: underline;
+    .button:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none;
     }
 
     .message {
       font-size: 13.5px;
       margin-top: 16px;
       padding: 11px 14px;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       text-align: center;
       display: none;
     }
@@ -343,133 +193,72 @@
 
     .loading {
       display: none;
-      text-align: center;
-      color: #2C3E50;
-      font-size: 14px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .spinner {
       display: inline-block;
       width: 13px;
       height: 13px;
-      border: 2px solid #2C3E50;
+      border: 2px solid var(--primary);
       border-top: 2px solid transparent;
       border-radius: 50%;
       animation: spin 0.6s linear infinite;
-      margin-right: 8px;
-      vertical-align: -2px;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    /* TABLET: 768px - 1199px */
-    @media (min-width: 768px) {
-      body {
-        padding: 20px;
-      }
-
-      .frame {
-        flex-direction: row;
-      }
-
-      .left-side {
-        display: flex;
-        width: 42%;
-      }
-
-      .right-side {
-        width: 58%;
-      }
+    .footer-note {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 12px;
+      color: #9AA5B1;
     }
 
-    /* DESKTOP: 1200px+ */
-    @media (min-width: 1200px) {
-      .left-side {
-        width: 50%;
-      }
-
-      .right-side {
-        width: 50%;
+    @media (max-width: 420px) {
+      .card {
+        padding: 34px 24px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="frame">
-    <!-- LEFT SIDE (headline + hexagon collage) -->
-    <div class="left-side">
-      <h1>Run Every Pinnacle Project on Auto-Pilot</h1>
+  <div class="card">
+    <img class="logo-mark" src="/images/pinnacle-logo.png" alt="Pinnacle Design | Build">
 
-      <div class="left-image">
-        <div class="hex-outline hex-outline-1"></div>
-        <div class="hex-outline hex-outline-2"></div>
+    <h1>Admin Login</h1>
+    <p class="subtitle">Sign in to manage your Pinnacle site</p>
 
-        <img
-          src="/images/login-hero.jpg"
-          alt="Contractor reviewing blueprints on a Pinnacle project site">
-
-        <div class="hex-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2C3E50" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 6L9 17l-5-5"/>
-          </svg>
-        </div>
-      </div>
+    <div class="demo-note">
+      Demo: <code>admin@pinnaclebuild.com</code> / <code>Pinnacle123!</code>
     </div>
 
-    <!-- RIGHT SIDE (login card) -->
-    <div class="right-side">
-      <div class="login-card">
-        <div class="brand-row">
-          <svg class="mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L22 20H2L12 2Z" fill="#F4C430"/>
-            <path d="M12 9L17 20H7L12 9Z" fill="#2C3E50"/>
-          </svg>
-          <span>Pinnacle</span>
-        </div>
-
-        <h2>Login</h2>
-        <h3>Login to your account</h3>
-        <p class="desc">Welcome back! Sign in to access the Pinnacle Admin dashboard.</p>
-
-        <div class="demo-note">
-          <span class="dot"></span>
-          <span>Demo: <code>admin@pinnaclebuild.com</code> / <code>Pinnacle123!</code></span>
-        </div>
-
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="email">Username</label>
-            <input type="email" id="email" placeholder="Email or Phone Number" required autocomplete="email">
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
-          </div>
-
-          <div class="form-row">
-            <label class="remember">
-              <input type="checkbox" checked>
-              Remember me
-            </label>
-            <a href="#" onclick="return false;">Reset Password?</a>
-          </div>
-
-          <button type="submit" class="button">
-            <span class="button-text">Sign In</span>
-            <span class="loading">
-              <span class="spinner"></span>Signing in...
-            </span>
-          </button>
-
-          <div id="message" class="message"></div>
-        </form>
-
-        <p class="footer-text">Don't have an account? <a href="#" onclick="return false;">Contact administrator</a></p>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="admin@pinnaclebuild.com" required autocomplete="email">
       </div>
-    </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="button">
+        <span class="button-text">Login</span>
+        <span class="loading">
+          <span class="spinner"></span>Signing in&hellip;
+        </span>
+      </button>
+
+      <div id="message" class="message"></div>
+    </form>
+
+    <p class="footer-note">© 2026 Pinnacle Design &amp; Build</p>
   </div>
 
   <script>
@@ -486,7 +275,7 @@
       // Show loading state
       button.disabled = true;
       buttonText.style.display = 'none';
-      loading.style.display = 'inline';
+      loading.style.display = 'inline-flex';
 
       try {
         const response = await fetch('/api/auth/login', {
