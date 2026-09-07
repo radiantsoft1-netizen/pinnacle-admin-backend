@@ -239,6 +239,64 @@
   .modal h3 { font-size:18px; font-weight:700; color:#1a2b5f; margin-bottom:18px; }
   .modal-actions { display:flex; justify-content:flex-end; gap:10px; margin-top:20px; }
   .modal p.confirm-text { font-size:13.5px; color:#6B7280; line-height:1.6; }
+  .modal-lg { max-width:820px; max-height:88vh; display:flex; flex-direction:column; padding:0; }
+  .modal-lg-head { padding:22px 28px; border-bottom:1px solid rgba(26,43,95,.08); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  .modal-lg-head h3 { margin:0; }
+  .modal-lg-close { background:none; border:none; font-size:22px; line-height:1; color:#9CA3AF; cursor:pointer; padding:4px; }
+  .modal-lg-close:hover { color:#1a2b5f; }
+  .modal-lg-body { padding:22px 28px; overflow-y:auto; flex:1; min-height:0; }
+  .modal-lg-actions { padding:16px 28px; border-top:1px solid rgba(26,43,95,.08); display:flex; justify-content:space-between; align-items:center; flex-shrink:0; }
+
+  /* Section type picker */
+  .section-type-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:12px; }
+  .section-type-card { border:1.5px solid rgba(26,43,95,.1); border-radius:12px; padding:16px 14px; cursor:pointer; transition:.15s; text-align:center; background:#fff; }
+  .section-type-card:hover { border-color:#F4C430; background:rgba(244,196,48,.06); transform:translateY(-1px); }
+  .section-type-card .sc-icon { font-size:26px; margin-bottom:8px; }
+  .section-type-card .sc-label { font-size:13px; font-weight:700; color:#1a2b5f; margin-bottom:3px; }
+  .section-type-card .sc-desc { font-size:11px; color:#9CA3AF; line-height:1.4; }
+
+  /* Section list (compact, draggable) */
+  .section-row { display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid rgba(26,43,95,.08); border-radius:10px; background:#fff; margin-bottom:8px; }
+  .section-row.dragging { opacity:.4; }
+  .section-row.drag-over { border-color:#F4C430; background:rgba(244,196,48,.05); }
+  .section-drag-handle { cursor:grab; color:#C4C9D4; font-size:16px; user-select:none; padding:2px 4px; flex-shrink:0; }
+  .section-drag-handle:active { cursor:grabbing; }
+  .section-row-thumb { width:40px; height:40px; border-radius:6px; object-fit:cover; flex-shrink:0; background:#F3F4F6; }
+  .section-row-thumb.empty { display:flex; align-items:center; justify-content:center; color:#C4C9D4; font-size:16px; }
+  .section-row-body { flex:1; min-width:0; }
+  .section-row-title { font-size:13.5px; font-weight:700; color:#1a2b5f; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .section-type-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:#7C8AA5; background:rgba(26,43,95,.06); border-radius:5px; padding:2px 7px; margin-right:8px; }
+  .section-row-actions { display:flex; gap:6px; flex-shrink:0; }
+  .icon-btn { width:30px; height:30px; border-radius:7px; border:1px solid rgba(26,43,95,.12); background:#fff; color:#6B7280; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:14px; }
+  .icon-btn:hover { background:rgba(26,43,95,.05); color:#1a2b5f; }
+  .icon-btn.danger:hover { background:rgba(239,68,68,.08); color:#EF4444; border-color:rgba(239,68,68,.3); }
+
+  /* Repeater fields (cards, testimonials, features, buttons, gallery images) */
+  .repeater-list { display:flex; flex-direction:column; gap:10px; margin-bottom:10px; }
+  .repeater-item { border:1px solid rgba(26,43,95,.1); border-radius:10px; padding:14px; position:relative; background:rgba(26,43,95,.015); }
+  .repeater-item-remove { position:absolute; top:8px; right:8px; background:none; border:none; color:#C4C9D4; font-size:16px; cursor:pointer; line-height:1; padding:4px; }
+  .repeater-item-remove:hover { color:#EF4444; }
+  .repeater-add-btn { border:1.5px dashed rgba(26,43,95,.2); border-radius:10px; padding:10px; width:100%; background:none; color:#6B7280; font-size:13px; font-weight:600; cursor:pointer; }
+  .repeater-add-btn:hover { border-color:#F4C430; color:#1a2b5f; background:rgba(244,196,48,.05); }
+
+  /* Image picker widget */
+  .image-picker { display:flex; align-items:center; gap:12px; }
+  .image-picker-preview { width:72px; height:72px; border-radius:8px; object-fit:cover; background:#F3F4F6; flex-shrink:0; }
+  .image-picker-preview.empty { display:flex; align-items:center; justify-content:center; color:#C4C9D4; font-size:22px; border:1.5px dashed rgba(26,43,95,.15); }
+  .image-picker-btns { display:flex; flex-direction:column; gap:6px; }
+
+  /* Editor preview pane */
+  .section-preview-box { border:1px solid rgba(26,43,95,.1); border-radius:10px; padding:18px; background:#F9FAFB; margin-bottom:18px; }
+  .section-preview-box .pv-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:#9CA3AF; margin-bottom:10px; }
+  .section-preview-content h4 { margin:0 0 8px; color:#1a2b5f; font-size:15px; }
+  .section-preview-content p { margin:0 0 8px; font-size:12.5px; color:#4B5563; line-height:1.6; white-space:pre-wrap; }
+  .section-preview-content img { max-width:100%; max-height:120px; border-radius:6px; object-fit:cover; }
+
+  /* Crop tool */
+  .crop-stage { position:relative; max-width:100%; max-height:60vh; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#111; border-radius:8px; }
+  .crop-stage img { max-width:100%; max-height:60vh; display:block; user-select:none; -webkit-user-drag:none; }
+  .crop-rect { position:absolute; border:2px solid #F4C430; box-shadow:0 0 0 2000px rgba(0,0,0,.5); cursor:move; }
+  .crop-rect .crop-handle { position:absolute; width:12px; height:12px; background:#F4C430; border-radius:50%; right:-6px; bottom:-6px; cursor:nwse-resize; }
 
   /* ===== Toast ===== */
   .toast-wrap { position:fixed; bottom:24px; right:24px; z-index:400; display:flex; flex-direction:column; gap:10px; }
@@ -421,6 +479,7 @@
             <div class="editor-body">
               <div class="editor-pane active" data-pane="sections">
                 <p class="hint" style="margin-bottom:14px;">This is the content actually shown on the live website (fetched from <code>/api/public/pages/{slug}</code>). The "Content" tab below is a separate, older single-block field that most pages don't use.</p>
+                <div style="margin-bottom:14px;"><button class="btn-primary" onclick="openAddSectionModal()">+ Add Section</button></div>
                 <div id="sectionsEmpty" class="hint" style="display:none;">No sections on this page yet.</div>
                 <div id="sectionsList"></div>
               </div>
@@ -694,6 +753,74 @@
     </div>
   </div>
 
+  <!-- ================= ADD SECTION: TYPE PICKER ================= -->
+  <div class="modal-overlay" id="addSectionModal">
+    <div class="modal modal-lg">
+      <div class="modal-lg-head">
+        <h3>Add Section</h3>
+        <button class="modal-lg-close" onclick="closeModal('addSectionModal')">&times;</button>
+      </div>
+      <div class="modal-lg-body">
+        <div class="section-type-grid" id="sectionTypeGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SECTION EDITOR ================= -->
+  <div class="modal-overlay" id="sectionEditorModal">
+    <div class="modal modal-lg">
+      <div class="modal-lg-head">
+        <h3 id="sectionEditorHeading">Edit Section</h3>
+        <button class="modal-lg-close" onclick="closeModal('sectionEditorModal')">&times;</button>
+      </div>
+      <div class="modal-lg-body">
+        <div class="section-preview-box">
+          <div class="pv-label">Preview</div>
+          <div class="section-preview-content" id="sectionEditorPreview"></div>
+        </div>
+        <div id="sectionEditorFields"></div>
+      </div>
+      <div class="modal-lg-actions">
+        <button class="btn-secondary" onclick="closeModal('sectionEditorModal')">Cancel</button>
+        <button class="btn-primary" onclick="saveSectionEditor()">Save Section</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MEDIA PICKER (choose existing) ================= -->
+  <div class="modal-overlay" id="mediaPickerModal">
+    <div class="modal modal-lg">
+      <div class="modal-lg-head">
+        <h3>Choose Image</h3>
+        <button class="modal-lg-close" onclick="closeModal('mediaPickerModal')">&times;</button>
+      </div>
+      <div class="modal-lg-body">
+        <div class="section-type-grid" id="mediaPickerGrid" style="grid-template-columns:repeat(auto-fill, minmax(100px, 1fr));"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= IMAGE CROP TOOL ================= -->
+  <div class="modal-overlay" id="cropModal">
+    <div class="modal modal-lg">
+      <div class="modal-lg-head">
+        <h3>Crop Image</h3>
+        <button class="modal-lg-close" onclick="closeModal('cropModal')">&times;</button>
+      </div>
+      <div class="modal-lg-body">
+        <div class="crop-stage" id="cropStage">
+          <img id="cropImg" alt="">
+          <div class="crop-rect" id="cropRect" style="display:none;"><div class="crop-handle" id="cropHandle"></div></div>
+        </div>
+        <p class="hint" style="margin-top:10px;">Drag the box to reposition, drag the corner handle to resize. Or skip cropping and upload as-is.</p>
+      </div>
+      <div class="modal-lg-actions">
+        <button class="btn-secondary" onclick="uploadWithoutCrop()">Skip Crop, Upload Original</button>
+        <button class="btn-primary" onclick="applyCropAndUpload()">Apply Crop &amp; Upload</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast-wrap" id="toastWrap"></div>
 
   <script>
@@ -907,10 +1034,86 @@
 
     let currentSections = [];
 
+    // ================= SECTION TYPE REGISTRY =================
+    // Each field: {key, label, type, bind?, options?, itemLabel?, itemFields?}
+    // bind: 'title' | 'content' | 'image_id' | 'background_color' | 'text_color' -> maps to the
+    // section's own columns. Anything else lives under json_data[key] (or, inside a repeater's
+    // itemFields, under json_data[repeaterKey][index][key]).
+    const SECTION_TYPES = {
+      'image': { icon:'🖼', label:'Image', desc:'A single full-width image', fields: [
+        { key:'image', label:'Image', type:'image', bind:'image_id' },
+        { key:'caption', label:'Caption', type:'text' },
+      ]},
+      'image-content': { icon:'🖇', label:'Image + Content', desc:'Image beside text, side by side', fields: [
+        { key:'title', label:'Title', type:'text', bind:'title' },
+        { key:'content', label:'Content', type:'textarea', bind:'content' },
+        { key:'image', label:'Image', type:'image', bind:'image_id' },
+        { key:'imagePosition', label:'Image Position', type:'select', options:['left','right'] },
+        { key:'buttons', label:'Buttons', type:'repeater', itemLabel:'Button', itemFields:[
+          { key:'text', label:'Button Text', type:'text' },
+          { key:'url', label:'Link URL', type:'text' },
+          { key:'color', label:'Color', type:'color' },
+        ]},
+      ]},
+      'content': { icon:'📝', label:'Content Only', desc:'Heading and text, no image', fields: [
+        { key:'title', label:'Title', type:'text', bind:'title' },
+        { key:'content', label:'Content', type:'textarea', bind:'content' },
+      ]},
+      'cards': { icon:'🗂', label:'Cards with Images', desc:'Grid of image cards', fields: [
+        { key:'title', label:'Section Title', type:'text', bind:'title' },
+        { key:'cards', label:'Cards', type:'repeater', itemLabel:'Card', itemFields:[
+          { key:'image', label:'Image', type:'image' },
+          { key:'title', label:'Title', type:'text' },
+          { key:'description', label:'Description', type:'textarea' },
+        ]},
+      ]},
+      'gallery': { icon:'🌆', label:'Image Gallery', desc:'Multiple images only', fields: [
+        { key:'title', label:'Section Title', type:'text', bind:'title' },
+        { key:'images', label:'Images', type:'repeater', itemLabel:'Image', itemFields:[
+          { key:'image', label:'Image', type:'image' },
+          { key:'caption', label:'Caption', type:'text' },
+        ]},
+      ]},
+      'pdf': { icon:'📄', label:'PDF', desc:'Embedded or linked PDF document', fields: [
+        { key:'title', label:'Title', type:'text', bind:'title' },
+        { key:'pdf', label:'PDF File', type:'file' },
+        { key:'description', label:'Description', type:'textarea' },
+      ]},
+      'button': { icon:'🔘', label:'Button / CTA', desc:'Standalone call-to-action buttons', fields: [
+        { key:'title', label:'Title', type:'text', bind:'title' },
+        { key:'subtitle', label:'Subtitle', type:'textarea' },
+        { key:'buttons', label:'Buttons', type:'repeater', itemLabel:'Button', itemFields:[
+          { key:'text', label:'Button Text', type:'text' },
+          { key:'url', label:'Link URL', type:'text' },
+          { key:'color', label:'Color', type:'color' },
+        ]},
+      ]},
+      'video': { icon:'🎬', label:'Video', desc:'Embedded video (YouTube, Vimeo, or MP4 URL)', fields: [
+        { key:'title', label:'Title', type:'text', bind:'title' },
+        { key:'videoUrl', label:'Video URL', type:'text' },
+        { key:'caption', label:'Caption', type:'text' },
+      ]},
+      'testimonials': { icon:'💬', label:'Testimonials', desc:'Customer quotes', fields: [
+        { key:'title', label:'Section Title', type:'text', bind:'title' },
+        { key:'testimonials', label:'Testimonials', type:'repeater', itemLabel:'Testimonial', itemFields:[
+          { key:'quote', label:'Quote', type:'textarea' },
+          { key:'author', label:'Author', type:'text' },
+          { key:'role', label:'Role / Company', type:'text' },
+        ]},
+      ]},
+      'features': { icon:'✅', label:'Features List', desc:'Bulleted feature list with icons', fields: [
+        { key:'title', label:'Section Title', type:'text', bind:'title' },
+        { key:'features', label:'Features', type:'repeater', itemLabel:'Feature', itemFields:[
+          { key:'icon', label:'Icon (emoji)', type:'text' },
+          { key:'title', label:'Title', type:'text' },
+          { key:'description', label:'Description', type:'textarea' },
+        ]},
+      ]},
+    };
+
     async function loadSections() {
       if (!currentPage) return;
       const list = document.getElementById('sectionsList');
-      const empty = document.getElementById('sectionsEmpty');
       list.innerHTML = '<p class="hint">Loading…</p>';
       try {
         const res = await fetch(`/api/sections?page_id=${currentPage.id}`, { headers: authHeaders });
@@ -927,56 +1130,477 @@
       const list = document.getElementById('sectionsList');
       const empty = document.getElementById('sectionsEmpty');
       empty.style.display = currentSections.length === 0 ? 'block' : 'none';
-      list.innerHTML = currentSections.map((s, i) => `
-        <div class="glass-card" style="margin-bottom:14px; padding:16px;">
-          <div class="form-row" style="align-items:flex-end;">
-            <div class="form-group" style="flex:2;">
-              <label>Title <span class="hint">(${escapeHtml(s.section_type || 'section')}, order ${s.section_order})</span></label>
-              <input type="text" value="${escapeHtml(s.section_title || '')}" data-field="section_title" data-id="${s.id}" oninput="markSectionDirty(${s.id})">
-            </div>
-            <div class="form-group" style="flex:0 0 90px;">
-              <label>Order</label>
-              <input type="number" value="${s.section_order ?? i}" data-field="section_order" data-id="${s.id}" oninput="markSectionDirty(${s.id})">
-            </div>
+      list.innerHTML = currentSections.map((s, i) => {
+        const typeInfo = SECTION_TYPES[s.section_type];
+        const label = typeInfo ? typeInfo.label : (s.section_type || 'section');
+        const thumb = s.image_url
+          ? `<img class="section-row-thumb" src="${escapeHtml(s.image_url)}" alt="">`
+          : `<div class="section-row-thumb empty">${typeInfo ? typeInfo.icon : '▢'}</div>`;
+        return `<div class="section-row" draggable="true" data-idx="${i}"
+          ondragstart="sectionDragStart(event, ${i})" ondragover="sectionDragOver(event, ${i})"
+          ondragleave="sectionDragLeave(event)" ondrop="sectionDrop(event, ${i})" ondragend="sectionDragEnd(event)">
+          <span class="section-drag-handle" title="Drag to reorder">⠿</span>
+          ${thumb}
+          <div class="section-row-body">
+            <div class="section-row-title"><span class="section-type-badge">${escapeHtml(label)}</span>${escapeHtml(s.section_title || '(untitled)')}</div>
           </div>
-          <div class="form-group">
-            <label>Content</label>
-            <textarea rows="4" data-field="section_content" data-id="${s.id}" oninput="markSectionDirty(${s.id})">${escapeHtml(s.section_content || '')}</textarea>
+          <div class="section-row-actions">
+            <button class="icon-btn" title="Edit" onclick="openSectionEditor(${s.id})">✎</button>
+            <button class="icon-btn" title="Duplicate" onclick="duplicateSectionAction(${s.id})">⧉</button>
+            <button class="icon-btn danger" title="Delete" onclick="deleteSectionConfirm(${s.id})">🗑</button>
           </div>
-          <div class="form-row" style="align-items:center;">
-            <div class="form-group" style="flex:1;">
-              ${s.image_url ? `<img src="${escapeHtml(s.image_url)}" alt="" style="max-height:60px; border-radius:6px; display:block; margin-bottom:6px;">` : '<span class="hint">No image</span>'}
-              <label>Media ID</label>
-              <input type="number" value="${s.image_id ?? ''}" placeholder="none" data-field="image_id" data-id="${s.id}" oninput="markSectionDirty(${s.id})">
-            </div>
-            <button class="btn-primary" onclick="saveSection(${s.id})" id="save-section-${s.id}">Save Section</button>
-          </div>
-        </div>
-      `).join('');
+        </div>`;
+      }).join('');
     }
 
-    function markSectionDirty(id) {
-      const btn = document.getElementById(`save-section-${id}`);
-      if (btn) btn.textContent = 'Save Section*';
+    // ---- Drag-and-drop reordering ----
+    let dragSrcIndex = null;
+    function sectionDragStart(e, idx) { dragSrcIndex = idx; e.currentTarget.classList.add('dragging'); }
+    function sectionDragOver(e, idx) { e.preventDefault(); e.currentTarget.classList.add('drag-over'); }
+    function sectionDragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
+    async function sectionDrop(e, idx) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('drag-over');
+      if (dragSrcIndex === null || dragSrcIndex === idx) return;
+      const moved = currentSections.splice(dragSrcIndex, 1)[0];
+      currentSections.splice(idx, 0, moved);
+      dragSrcIndex = null;
+      renderSections();
+      await persistSectionOrder();
     }
-
-    async function saveSection(id) {
-      const container = document.querySelector(`[data-id="${id}"]`)?.closest('.glass-card');
-      if (!container) return;
-      const body = {};
-      container.querySelectorAll('[data-field]').forEach(el => {
-        const field = el.dataset.field;
-        body[field] = field === 'section_order' ? (parseInt(el.value, 10) || 0)
-          : field === 'image_id' ? (el.value === '' ? '' : parseInt(el.value, 10))
-          : el.value;
-      });
+    function sectionDragEnd() {
+      document.querySelectorAll('.section-row').forEach(r => r.classList.remove('dragging', 'drag-over'));
+      dragSrcIndex = null;
+    }
+    async function persistSectionOrder() {
+      const payload = currentSections.map((s, i) => ({ id: s.id, section_order: i }));
       try {
-        const res = await fetch(`/api/sections/${id}`, { method: 'PUT', headers: authHeaders, body: JSON.stringify(body) });
-        if (!res.ok) throw new Error('Save failed');
-        showToast('Section saved');
+        const res = await fetch('/api/sections/reorder/bulk', { method: 'PUT', headers: authHeaders, body: JSON.stringify({ sections: payload }) });
+        if (!res.ok) throw new Error('Reorder failed');
+        showToast('Order updated');
+      } catch (e) {
+        showToast('Could not save new order', 'error');
+      }
+    }
+
+    async function duplicateSectionAction(id) {
+      try {
+        const res = await fetch(`/api/sections/${id}/duplicate`, { method: 'POST', headers: authHeaders });
+        if (!res.ok) throw new Error('Duplicate failed');
+        showToast('Section duplicated');
         loadSections();
       } catch (e) {
-        showToast('Could not save section', 'error');
+        showToast('Could not duplicate section', 'error');
+      }
+    }
+
+    function deleteSectionConfirm(id) {
+      document.getElementById('confirmTitle').textContent = 'Delete this section?';
+      document.getElementById('confirmText').textContent = 'This cannot be undone.';
+      const btn = document.getElementById('confirmActionBtn');
+      btn.onclick = async () => {
+        try {
+          const res = await fetch(`/api/sections/${id}`, { method: 'DELETE', headers: authHeaders });
+          if (!res.ok) throw new Error('Delete failed');
+          showToast('Section deleted');
+          closeModal('confirmModal');
+          loadSections();
+        } catch (e) {
+          showToast('Could not delete section', 'error');
+        }
+      };
+      document.getElementById('confirmModal').classList.add('open');
+    }
+
+    // ---- Add Section modal ----
+    function openAddSectionModal() {
+      const grid = document.getElementById('sectionTypeGrid');
+      grid.innerHTML = Object.entries(SECTION_TYPES).map(([key, t]) => `
+        <div class="section-type-card" onclick="pickSectionType('${key}')">
+          <div class="sc-icon">${t.icon}</div>
+          <div class="sc-label">${escapeHtml(t.label)}</div>
+          <div class="sc-desc">${escapeHtml(t.desc)}</div>
+        </div>
+      `).join('');
+      document.getElementById('addSectionModal').classList.add('open');
+    }
+
+    function pickSectionType(type) {
+      closeModal('addSectionModal');
+      editingIsNew = true;
+      editingSection = {
+        id: null, page_id: currentPage.id, section_type: type,
+        section_title: '', section_content: '', background_color: '', text_color: '',
+        image_id: null, image_url: null, json_data: {}
+      };
+      openSectionEditorUI();
+    }
+
+    // ---- Edit existing section ----
+    let editingSection = null;
+    let editingIsNew = false;
+
+    function openSectionEditor(id) {
+      const s = currentSections.find(x => x.id === id);
+      if (!s) return;
+      editingIsNew = false;
+      editingSection = JSON.parse(JSON.stringify(s));
+      if (typeof editingSection.json_data === 'string') {
+        try { editingSection.json_data = JSON.parse(editingSection.json_data); } catch (e) { editingSection.json_data = {}; }
+      }
+      if (!editingSection.json_data) editingSection.json_data = {};
+      openSectionEditorUI();
+    }
+
+    function openSectionEditorUI() {
+      const type = SECTION_TYPES[editingSection.section_type];
+      document.getElementById('sectionEditorHeading').textContent =
+        (editingIsNew ? 'Add ' : 'Edit ') + (type ? type.label : editingSection.section_type);
+      renderSectionEditorFields();
+      updateSectionPreview();
+      document.getElementById('sectionEditorModal').classList.add('open');
+    }
+
+    // ---- Generic bind path get/set ----
+    function getPath(obj, path) {
+      return path.split('.').reduce((o, k) => (o === undefined || o === null ? undefined : o[k]), obj);
+    }
+    function setPath(obj, path, value) {
+      const keys = path.split('.');
+      let cur = obj;
+      for (let i = 0; i < keys.length - 1; i++) {
+        const k = keys[i];
+        if (cur[k] === undefined || cur[k] === null) cur[k] = /^\d+$/.test(keys[i + 1]) ? [] : {};
+        cur = cur[k];
+      }
+      cur[keys[keys.length - 1]] = value;
+    }
+    const SPECIAL_BINDS = ['title', 'content', 'image_id', 'background_color', 'text_color'];
+    function getBoundValue(bind) {
+      if (bind === 'title') return editingSection.section_title || '';
+      if (bind === 'content') return editingSection.section_content || '';
+      if (bind === 'image_id') return { id: editingSection.image_id || null, url: editingSection.image_url || null };
+      if (bind === 'background_color') return editingSection.background_color || '';
+      if (bind === 'text_color') return editingSection.text_color || '';
+      return getPath(editingSection.json_data, bind.replace(/^json\./, ''));
+    }
+    function setBoundValue(bind, value) {
+      if (bind === 'title') { editingSection.section_title = value; return; }
+      if (bind === 'content') { editingSection.section_content = value; return; }
+      if (bind === 'image_id') { editingSection.image_id = value.id; editingSection.image_url = value.url; return; }
+      if (bind === 'background_color') { editingSection.background_color = value; return; }
+      if (bind === 'text_color') { editingSection.text_color = value; return; }
+      setPath(editingSection.json_data, bind.replace(/^json\./, ''), value);
+    }
+
+    // ---- Field rendering ----
+    function renderField(f, bindPrefix) {
+      const bind = bindPrefix ? `${bindPrefix}.${f.key}` : (SPECIAL_BINDS.includes(f.bind) ? f.bind : `json.${f.key}`);
+
+      if (f.type === 'text') {
+        return `<div class="form-group"><label>${escapeHtml(f.label)}</label><input type="text" data-bind="${bind}" value="${escapeHtml(getBoundValue(bind) || '')}"></div>`;
+      }
+      if (f.type === 'textarea') {
+        return `<div class="form-group"><label>${escapeHtml(f.label)}</label><textarea rows="3" data-bind="${bind}">${escapeHtml(getBoundValue(bind) || '')}</textarea></div>`;
+      }
+      if (f.type === 'color') {
+        return `<div class="form-group"><label>${escapeHtml(f.label)}</label><input type="color" data-bind="${bind}" value="${getBoundValue(bind) || '#1a2b5f'}"></div>`;
+      }
+      if (f.type === 'select') {
+        const val = getBoundValue(bind);
+        return `<div class="form-group"><label>${escapeHtml(f.label)}</label><select data-bind="${bind}">${f.options.map(o => `<option value="${o}" ${o === val ? 'selected' : ''}>${o}</option>`).join('')}</select></div>`;
+      }
+      if (f.type === 'image' || f.type === 'file') {
+        const val = getBoundValue(bind) || {};
+        const isPdf = f.type === 'file';
+        const hasFile = val && val.id;
+        const previewHtml = isPdf
+          ? (hasFile ? `<div class="image-picker-preview" style="display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a2b5f;">PDF</div>` : `<div class="image-picker-preview empty">📄</div>`)
+          : (hasFile ? `<img class="image-picker-preview" src="${escapeHtml(val.url || '')}" alt="">` : `<div class="image-picker-preview empty">🖼</div>`);
+        return `<div class="form-group"><label>${escapeHtml(f.label)}</label>
+          <div class="image-picker">
+            ${previewHtml}
+            <div class="image-picker-btns">
+              <button type="button" class="btn-secondary" onclick="triggerFileInput('${bind}')">Upload New</button>
+              ${!isPdf ? `<button type="button" class="btn-secondary" onclick="openMediaPicker('${bind}')">Choose Existing</button>` : ''}
+              ${hasFile ? `<button type="button" class="btn-secondary" onclick="clearImageField('${bind}')">Remove</button>` : ''}
+            </div>
+          </div>
+          <input type="file" style="display:none;" data-file-input="${bind}" accept="${isPdf ? 'application/pdf' : 'image/*'}" onchange="handleFileSelect(event, '${bind}', ${isPdf})">
+        </div>`;
+      }
+      if (f.type === 'repeater') {
+        const arr = getBoundValue(bind) || [];
+        return `<div class="form-group"><label>${escapeHtml(f.label)}</label>
+          <div class="repeater-list">
+            ${arr.map((item, i) => `<div class="repeater-item">
+              <button type="button" class="repeater-item-remove" onclick="removeRepeaterItem('${bind}', ${i})">&times;</button>
+              ${f.itemFields.map(sf => renderField(sf, `${bind}.${i}`)).join('')}
+            </div>`).join('')}
+          </div>
+          <button type="button" class="repeater-add-btn" onclick="addRepeaterItem('${bind}')">+ Add ${escapeHtml(f.itemLabel)}</button>
+        </div>`;
+      }
+      return '';
+    }
+
+    function renderStyleFields() {
+      return `<div class="form-row" style="margin-top:6px; border-top:1px solid rgba(26,43,95,.08); padding-top:16px;">
+        ${renderField({ key: 'background_color', label: 'Background Color', type: 'color', bind: 'background_color' })}
+        ${renderField({ key: 'text_color', label: 'Text Color', type: 'color', bind: 'text_color' })}
+      </div>`;
+    }
+
+    function renderSectionEditorFields() {
+      const type = SECTION_TYPES[editingSection.section_type];
+      const container = document.getElementById('sectionEditorFields');
+      if (!type) {
+        container.innerHTML =
+          '<p class="hint" style="margin-bottom:12px;">This section predates the visual editor (created during content migration), so it doesn\'t match one of the ten section templates. You can still edit its title, content, image, and styling below.</p>' +
+          renderField({ key: 'title', label: 'Title', type: 'text', bind: 'title' }) +
+          renderField({ key: 'content', label: 'Content', type: 'textarea', bind: 'content' }) +
+          renderField({ key: 'image', label: 'Image', type: 'image', bind: 'image_id' }) +
+          renderStyleFields();
+      } else {
+        container.innerHTML = type.fields.map(f => renderField(f)).join('') + renderStyleFields();
+      }
+      wireFieldEvents();
+    }
+
+    function wireFieldEvents() {
+      document.querySelectorAll('#sectionEditorFields [data-bind]').forEach(el => {
+        const evt = (el.tagName === 'SELECT' || el.type === 'color') ? 'change' : 'input';
+        el.addEventListener(evt, () => {
+          setBoundValue(el.dataset.bind, el.value);
+          updateSectionPreview();
+        });
+      });
+    }
+
+    function addRepeaterItem(bind) {
+      const path = bind.replace(/^json\./, '');
+      const arr = getPath(editingSection.json_data, path) || [];
+      arr.push({});
+      setPath(editingSection.json_data, path, arr);
+      renderSectionEditorFields();
+      updateSectionPreview();
+    }
+    function removeRepeaterItem(bind, index) {
+      const path = bind.replace(/^json\./, '');
+      const arr = getPath(editingSection.json_data, path) || [];
+      arr.splice(index, 1);
+      setPath(editingSection.json_data, path, arr);
+      renderSectionEditorFields();
+      updateSectionPreview();
+    }
+
+    // ---- Image upload (with optional crop) / file upload / media library picker ----
+    function triggerFileInput(bind) {
+      document.querySelector(`[data-file-input="${CSS.escape(bind)}"]`)?.click();
+    }
+
+    let cropTargetField = null;
+    let cropFile = null;
+
+    function handleFileSelect(e, bind, isPdf) {
+      const file = e.target.files[0];
+      e.target.value = '';
+      if (!file) return;
+      if (isPdf) {
+        uploadFileDirect(file, bind);
+      } else {
+        cropTargetField = bind;
+        cropFile = file;
+        openCropModal(file);
+      }
+    }
+
+    async function uploadFileDirect(file, bind) {
+      const fd = new FormData();
+      fd.append('file', file);
+      try {
+        const res = await fetch('/api/media/upload', { method: 'POST', headers: { Authorization: authHeaders.Authorization }, body: fd });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Upload failed');
+        setBoundValue(bind, { id: data.id, url: data.file_url });
+        renderSectionEditorFields();
+        updateSectionPreview();
+        showToast('Uploaded');
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
+
+    let mediaPickerTargetBind = null;
+    async function openMediaPicker(bind) {
+      mediaPickerTargetBind = bind;
+      const grid = document.getElementById('mediaPickerGrid');
+      grid.innerHTML = '<p class="hint">Loading…</p>';
+      document.getElementById('mediaPickerModal').classList.add('open');
+      try {
+        const res = await fetch('/api/media', { headers: authHeaders });
+        const items = await res.json();
+        const images = items.filter(m => m.file_type !== 'application/pdf');
+        grid.innerHTML = images.length
+          ? images.map(m => `<div class="section-type-card" style="padding:6px;" onclick='selectMediaItem(${m.id}, ${JSON.stringify(m.file_url)})'>
+              <img src="${escapeHtml(m.file_url)}" alt="" style="width:100%; height:70px; object-fit:cover; border-radius:6px;">
+            </div>`).join('')
+          : '<p class="hint">No images uploaded yet.</p>';
+      } catch (e) {
+        grid.innerHTML = '<p class="hint">Could not load media library.</p>';
+      }
+    }
+    function selectMediaItem(id, url) {
+      setBoundValue(mediaPickerTargetBind, { id, url });
+      closeModal('mediaPickerModal');
+      renderSectionEditorFields();
+      updateSectionPreview();
+    }
+    function clearImageField(bind) {
+      setBoundValue(bind, { id: null, url: null });
+      renderSectionEditorFields();
+      updateSectionPreview();
+    }
+
+    // ---- Crop tool ----
+    let cropState = null;
+    function openCropModal(file) {
+      const img = document.getElementById('cropImg');
+      img.src = URL.createObjectURL(file);
+      img.onload = () => initCropRect();
+      document.getElementById('cropModal').classList.add('open');
+    }
+    function initCropRect() {
+      const img = document.getElementById('cropImg');
+      const iw = img.clientWidth, ih = img.clientHeight;
+      const size = Math.min(iw, ih) * 0.8;
+      cropState = { x: (iw - size) / 2, y: (ih - size) / 2, w: size, h: size, imgW: iw, imgH: ih };
+      positionCropRect();
+      document.getElementById('cropRect').style.display = 'block';
+    }
+    function positionCropRect() {
+      const rect = document.getElementById('cropRect');
+      rect.style.left = cropState.x + 'px';
+      rect.style.top = cropState.y + 'px';
+      rect.style.width = cropState.w + 'px';
+      rect.style.height = cropState.h + 'px';
+    }
+    (function setupCropDrag() {
+      const rectEl = document.getElementById('cropRect');
+      const handleEl = document.getElementById('cropHandle');
+      let mode = null, startX = 0, startY = 0, startRect = null;
+      rectEl.addEventListener('mousedown', (e) => {
+        if (e.target === handleEl) return;
+        mode = 'move'; startX = e.clientX; startY = e.clientY; startRect = { ...cropState };
+        e.preventDefault();
+      });
+      handleEl.addEventListener('mousedown', (e) => {
+        mode = 'resize'; startX = e.clientX; startY = e.clientY; startRect = { ...cropState };
+        e.preventDefault(); e.stopPropagation();
+      });
+      document.addEventListener('mousemove', (e) => {
+        if (!mode || !cropState) return;
+        const dx = e.clientX - startX, dy = e.clientY - startY;
+        if (mode === 'move') {
+          cropState.x = Math.max(0, Math.min(startRect.x + dx, cropState.imgW - cropState.w));
+          cropState.y = Math.max(0, Math.min(startRect.y + dy, cropState.imgH - cropState.h));
+        } else if (mode === 'resize') {
+          const delta = Math.max(dx, dy);
+          const newSize = Math.max(30, Math.min(startRect.w + delta, cropState.imgW - startRect.x, cropState.imgH - startRect.y));
+          cropState.w = newSize; cropState.h = newSize;
+        }
+        positionCropRect();
+      });
+      document.addEventListener('mouseup', () => { mode = null; });
+    })();
+
+    async function applyCropAndUpload() {
+      if (!cropFile || !cropState) return;
+      const img = document.getElementById('cropImg');
+      const scaleX = img.naturalWidth / cropState.imgW;
+      const scaleY = img.naturalHeight / cropState.imgH;
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(cropState.w * scaleX);
+      canvas.height = Math.round(cropState.h * scaleY);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, cropState.x * scaleX, cropState.y * scaleY, cropState.w * scaleX, cropState.h * scaleY, 0, 0, canvas.width, canvas.height);
+      const mime = (cropFile.type && cropFile.type !== 'image/svg+xml') ? cropFile.type : 'image/jpeg';
+      canvas.toBlob(async (blob) => {
+        const file = new File([blob], cropFile.name, { type: mime });
+        closeModal('cropModal');
+        await uploadFileDirect(file, cropTargetField);
+      }, mime, 0.9);
+    }
+    function uploadWithoutCrop() {
+      if (!cropFile || !cropTargetField) return;
+      closeModal('cropModal');
+      uploadFileDirect(cropFile, cropTargetField);
+    }
+
+    // ---- Live preview ----
+    function updateSectionPreview() {
+      const el = document.getElementById('sectionEditorPreview');
+      const bg = editingSection.background_color || '#fff';
+      const tc = editingSection.text_color || '#1a2b5f';
+      const jd = editingSection.json_data || {};
+      let html = `<div style="background:${bg}; color:${tc}; padding:14px; border-radius:8px;">`;
+      if (editingSection.section_title) html += `<h4 style="color:${tc};">${escapeHtml(editingSection.section_title)}</h4>`;
+      if (editingSection.image_url) html += `<img src="${escapeHtml(editingSection.image_url)}" alt="">`;
+      if (editingSection.section_content) html += `<p>${escapeHtml(editingSection.section_content)}</p>`;
+      if (jd.videoUrl) html += `<p>🎬 ${escapeHtml(jd.videoUrl)}</p>`;
+      if (jd.pdf && jd.pdf.url) html += `<p>📄 ${escapeHtml(jd.pdf.url)}</p>`;
+      if (Array.isArray(jd.buttons)) {
+        html += jd.buttons.filter(b => b.text).map(b =>
+          `<span style="display:inline-block;background:${b.color || '#F4C430'};color:#1a2b5f;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;margin:4px 6px 0 0;">${escapeHtml(b.text)}</span>`
+        ).join('');
+      }
+      if (Array.isArray(jd.cards)) {
+        html += jd.cards.map(c => `<div style="display:inline-block;margin:6px 6px 0 0;padding:8px;border:1px solid #E5E7EB;border-radius:6px;vertical-align:top;">
+          ${c.image && c.image.url ? `<img src="${escapeHtml(c.image.url)}" style="width:60px;height:60px;object-fit:cover;border-radius:4px;display:block;margin-bottom:4px;">` : ''}
+          <b style="font-size:12px;">${escapeHtml(c.title || '')}</b><br><span style="font-size:11px;">${escapeHtml(c.description || '')}</span>
+        </div>`).join('');
+      }
+      if (Array.isArray(jd.images)) {
+        html += jd.images.filter(i => i.image && i.image.url).map(i =>
+          `<img src="${escapeHtml(i.image.url)}" style="width:60px;height:60px;object-fit:cover;margin:4px 4px 0 0;border-radius:4px;">`
+        ).join('');
+      }
+      if (Array.isArray(jd.testimonials)) {
+        html += jd.testimonials.map(t => `<p style="font-style:italic;">&ldquo;${escapeHtml(t.quote || '')}&rdquo; <span style="font-style:normal;font-weight:600;">— ${escapeHtml(t.author || '')}</span></p>`).join('');
+      }
+      if (Array.isArray(jd.features)) {
+        html += jd.features.map(f => `<p>${escapeHtml(f.icon || '•')} <b>${escapeHtml(f.title || '')}</b> — ${escapeHtml(f.description || '')}</p>`).join('');
+      }
+      html += '</div>';
+      el.innerHTML = html;
+    }
+
+    // ---- Save (create or update) ----
+    async function saveSectionEditor() {
+      const body = {
+        section_type: editingSection.section_type,
+        section_title: editingSection.section_title || '',
+        section_content: editingSection.section_content || '',
+        background_color: editingSection.background_color || '',
+        text_color: editingSection.text_color || '',
+        image_id: editingSection.image_id || '',
+        json_data: editingSection.json_data || {}
+      };
+      try {
+        let res;
+        if (editingIsNew) {
+          body.page_id = currentPage.id;
+          res = await fetch('/api/sections', { method: 'POST', headers: authHeaders, body: JSON.stringify(body) });
+        } else {
+          res = await fetch(`/api/sections/${editingSection.id}`, { method: 'PUT', headers: authHeaders, body: JSON.stringify(body) });
+        }
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Save failed');
+        showToast(editingIsNew ? 'Section added' : 'Section saved');
+        closeModal('sectionEditorModal');
+        loadSections();
+      } catch (e) {
+        showToast(e.message, 'error');
       }
     }
 

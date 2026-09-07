@@ -12,8 +12,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadsDir = path.join(__dirname, '../../public/uploads');
 
-const ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml']);
-const MAX_FILE_SIZE = 8 * 1024 * 1024; // 8MB
+const ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml', 'application/pdf']);
+const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB (PDFs run larger than the site's images)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, uploadsDir),
@@ -30,7 +30,7 @@ const upload = multer({
   limits: { fileSize: MAX_FILE_SIZE },
   fileFilter: (req, file, cb) => {
     if (!ALLOWED_TYPES.has(file.mimetype)) {
-      return cb(new Error('Only image files (jpg, png, gif, webp, svg) are allowed'));
+      return cb(new Error('Only image files (jpg, png, gif, webp, svg) or PDFs are allowed'));
     }
     cb(null, true);
   }

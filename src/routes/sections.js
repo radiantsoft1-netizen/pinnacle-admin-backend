@@ -26,6 +26,41 @@ router.get('/', async (req, res) => {
   }
 });
 
+// CREATE SECTION
+router.post('/', async (req, res) => {
+  try {
+    const {
+      page_id, section_type, section_title, section_content,
+      background_color, text_color, image_id, json_data
+    } = req.body;
+
+    if (!page_id || !section_type) {
+      return res.status(400).json({ error: 'page_id and section_type are required' });
+    }
+
+    const maxResult = await pool.query(
+      'SELECT COALESCE(MAX(section_order), -1) + 1 AS next FROM page_sections WHERE page_id = $1',
+      [page_id]
+    );
+
+    const result = await pool.query(
+      `INSERT INTO page_sections
+        (page_id, section_type, section_title, section_content, section_order, background_color, text_color, image_id, json_data)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *`,
+      [
+        page_id, section_type, section_title || null, section_content || null,
+        maxResult.rows[0].next, background_color || null, text_color || null,
+        image_id || null, json_data ? JSON.stringify(json_data) : '{}'
+      ]
+    );
+
+    res.status(201).json({ success: true, section: result.rows[0] });
+  } catch (error) {
+    console.error('Create section error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // GET SINGLE SECTION
 router.get('/:id', async (req, res) => {
   try {
@@ -66,7 +101,7 @@ router.put('/:id', async (req, res) => {
         section_order = COALESCE($8, section_order),
         updated_at = CURRENT_TIMESTAMP
        WHERE id = $9 RETURNING *`,
-      [section_type, section_title, section_content, background_color, text_color, imageIdParam, json_data, section_order, req.params.id]
+      [section_type, section_title, section_content, background_color, text_color, imageIdParam, json_data ? JSON.stringify(json_data) : null, section_order, req.params.id]
     );
 
     if (result.rows.length === 0) {
