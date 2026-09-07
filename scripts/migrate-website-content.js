@@ -240,7 +240,7 @@ async function run() {
             featured_image = $7, published_at = COALESCE(published_at, CURRENT_TIMESTAMP),
             updated_at = CURRENT_TIMESTAMP, last_edited_by = $8
            WHERE id = $9`,
-          [p.h1 || p.title, p.title, p.meta_description || null, p.meta_keywords || null,
+          [p.name || p.h1 || p.title, p.title, p.meta_description || null, p.meta_keywords || null,
            pageOrder, isHome, featuredImageId, ADMIN_ID, pageId]
         );
         await client.query('DELETE FROM page_sections WHERE page_id = $1', [pageId]); // replace with fresh extract

@@ -1,6 +1,7 @@
 [
   {
     "slug": "home",
+    "name": "Home",
     "title": "Pinnacle Design | Build — General Contracting",
     "meta_description": "Pinnacle Design | Build — general contracting for residential and commercial construction with craftsmanship and lasting quality.",
     "meta_keywords": "general contracting, design build, Brampton, GTA, renovation",
@@ -61,6 +62,7 @@
   },
   {
     "slug": "about",
+    "name": "About Us",
     "title": "About Us",
     "meta_description": "Learn about Pinnacle Design | Build — our mission, vision, Brampton roots, and the team behind integrated design-build solutions.",
     "meta_keywords": "about pinnacle design build, our team, mission, vision, Brampton",
@@ -110,6 +112,7 @@
   },
   {
     "slug": "contact",
+    "name": "Contact Us",
     "title": "Contact Us",
     "meta_description": "Contact Pinnacle Design | Build in Brampton — phone, email, location, and project inquiry form for design-build and renovations.",
     "meta_keywords": "contact pinnacle design build, Brampton contractor, get a quote",
@@ -152,6 +155,7 @@
   },
   {
     "slug": "cost-calculator",
+    "name": "Cost Calculator",
     "title": "Renovation Cost Calculator",
     "meta_description": "Pinnacle Design | Build — Professional Renovation Cost Calculator. Get accurate instant budget estimates for your home renovation project.",
     "meta_keywords": "renovation cost calculator, budget estimate, project cost",
@@ -176,6 +180,7 @@
   },
   {
     "slug": "gallery",
+    "name": "Gallery",
     "title": "Gallery",
     "meta_description": "Pinnacle Design | Build project gallery — home extensions, hotels, basements, kitchen remodeling, and sun rooms.",
     "meta_keywords": "project gallery, renovation photos, portfolio, Brampton contractor",
@@ -243,6 +248,7 @@
   },
   {
     "slug": "process",
+    "name": "The Process",
     "title": "The Process",
     "meta_description": "The Pinnacle Design | Build process — from free consultation and contract through construction to completion and move-in.",
     "meta_keywords": "design build process, renovation process, Brampton",
