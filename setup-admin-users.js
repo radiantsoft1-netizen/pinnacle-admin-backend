@@ -1,8 +1,12 @@
 import bcrypt from 'bcryptjs';
-import { pool } from './server.js';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/pinnacle_admin'
+});
 
 async function setupAdminUsers() {
   try {
