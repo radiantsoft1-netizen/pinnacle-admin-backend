@@ -9,3 +9,6 @@ public/uploads/*
 !public/uploads/.gitkeep
 .vercel
 .env*
+.agents/
+.claude/skills/neon*
+skills-lock.json

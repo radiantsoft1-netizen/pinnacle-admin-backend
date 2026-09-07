@@ -249,7 +249,7 @@ async function run() {
           `INSERT INTO pages (name, slug, title, meta_description, meta_keywords, status,
              page_order, is_home_page, featured_image, published_at, created_by, last_edited_by)
            VALUES ($1,$2,$3,$4,$5,'published',$6,$7,$8,CURRENT_TIMESTAMP,$9,$9) RETURNING id`,
-          [p.h1 || p.title, p.slug, p.title, p.meta_description || null, p.meta_keywords || null,
+          [p.name || p.h1 || p.title, p.slug, p.title, p.meta_description || null, p.meta_keywords || null,
            pageOrder, isHome, featuredImageId, ADMIN_ID]
         );
         pageId = result.rows[0].id;
