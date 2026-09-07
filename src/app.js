@@ -19,8 +19,20 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Middleware
-const corsOrigin = process.env.CORS_ORIGIN;
-app.use(cors(corsOrigin ? { origin: corsOrigin } : {}));
+// CORS_ORIGIN may list multiple comma-separated origins (production site,
+// staging, etc). Localhost is always allowed too, for local frontend dev
+// against this API - every route here is either public read-only content
+// or protected by a JWT bearer token, never cookies, so a permissive origin
+// list carries no CSRF risk.
+const allowedOrigins = (process.env.CORS_ORIGIN || '').split(',').map(o => o.trim()).filter(Boolean);
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin) || /^https?:\/\/localhost(:\d+)?$/.test(origin)) {
+      return callback(null, true);
+    }
+    callback(null, false);
+  }
+}));
 app.use(express.json());
 // Absolute path, not a bare 'public' string — process.cwd() is unreliable
 // inside a serverless function's runtime and silently resolves to the
