@@ -415,8 +415,6 @@
             <div class="editor-tabs">
               <div class="editor-tab active" data-tab="sections" onclick="switchPageTab('sections')">Sections</div>
               <div class="editor-tab" data-tab="content" onclick="switchPageTab('content')">Content</div>
-              <div class="editor-tab" data-tab="header" onclick="switchPageTab('header')">Header</div>
-              <div class="editor-tab" data-tab="footer" onclick="switchPageTab('footer')">Footer</div>
               <div class="editor-tab" data-tab="settings" onclick="switchPageTab('settings')">Settings</div>
             </div>
 
@@ -454,42 +452,6 @@
                   <button class="btn-primary" onclick="savePage()">Save Content</button>
                   <button class="btn-secondary" onclick="previewPage()">Preview Page</button>
                 </div>
-              </div>
-
-              <div class="editor-pane" data-pane="header">
-                <div class="form-group">
-                  <label>Brand Name / Logo Text</label>
-                  <input type="text" id="headerBrandName" oninput="markPageDirty()" placeholder="Pinnacle Design | Build">
-                </div>
-                <div class="form-row">
-                  <div class="form-group"><label>Header Background Color</label><input type="color" id="headerBgColor" value="#1a2b5f" oninput="markPageDirty()"></div>
-                  <div class="form-group"><label>Header Text Color</label><input type="color" id="headerTextColor" value="#ffffff" oninput="markPageDirty()"></div>
-                </div>
-                <div class="form-group">
-                  <label>Navigation Note</label>
-                  <textarea id="headerNavNote" oninput="markPageDirty()" placeholder="Navigation items are managed in Menus → assign a menu with location = Header"></textarea>
-                  <p class="hint">Nav links themselves live in the Menus section, so this header only stores its own branding.</p>
-                </div>
-                <div class="editor-actions"><button class="btn-primary" onclick="savePage()">Save Header</button></div>
-              </div>
-
-              <div class="editor-pane" data-pane="footer">
-                <div class="form-group">
-                  <label>Footer Content</label>
-                  <div class="rte-toolbar" data-target="footerContentEditor">
-                    <button type="button" class="rte-btn" data-cmd="bold" title="Bold"><b>B</b></button>
-                    <button type="button" class="rte-btn" data-cmd="italic" title="Italic"><i>I</i></button>
-                    <button type="button" class="rte-btn" data-cmd="underline" title="Underline"><u>U</u></button>
-                    <div class="rte-sep"></div>
-                    <button type="button" class="rte-btn" data-cmd="createLink" title="Insert link">🔗</button>
-                  </div>
-                  <div class="rte-editor" id="footerContentEditor" contenteditable="true" style="min-height:120px;" oninput="markPageDirty()"></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group"><label>Footer Background Color</label><input type="color" id="footerBgColor" value="#1a2b5f" oninput="markPageDirty()"></div>
-                  <div class="form-group"><label>Footer Text Color</label><input type="color" id="footerTextColor" value="#ffffff" oninput="markPageDirty()"></div>
-                </div>
-                <div class="editor-actions"><button class="btn-primary" onclick="savePage()">Save Footer</button></div>
               </div>
 
               <div class="editor-pane" data-pane="settings">
@@ -928,17 +890,6 @@
       document.getElementById('editName').value = currentPage.name || '';
       document.getElementById('pageContentEditor').innerHTML = currentPage.page_content || '';
 
-      const header = safeParse(currentPage.header_content);
-      document.getElementById('headerBrandName').value = header.brandName || '';
-      document.getElementById('headerBgColor').value = header.bgColor || '#1a2b5f';
-      document.getElementById('headerTextColor').value = header.textColor || '#ffffff';
-      document.getElementById('headerNavNote').value = header.navNote || '';
-
-      const footer = safeParse(currentPage.footer_content);
-      document.getElementById('footerContentEditor').innerHTML = footer.html || '';
-      document.getElementById('footerBgColor').value = footer.bgColor || '#1a2b5f';
-      document.getElementById('footerTextColor').value = footer.textColor || '#ffffff';
-
       document.getElementById('settingsTitle').value = currentPage.title || '';
       document.getElementById('settingsSlug').value = currentPage.slug || '';
       document.getElementById('settingsDescription').value = currentPage.description || '';
@@ -1039,23 +990,9 @@
     async function savePage() {
       if (!currentPage) return;
 
-      const headerData = JSON.stringify({
-        brandName: document.getElementById('headerBrandName').value,
-        bgColor: document.getElementById('headerBgColor').value,
-        textColor: document.getElementById('headerTextColor').value,
-        navNote: document.getElementById('headerNavNote').value
-      });
-      const footerData = JSON.stringify({
-        html: document.getElementById('footerContentEditor').innerHTML,
-        bgColor: document.getElementById('footerBgColor').value,
-        textColor: document.getElementById('footerTextColor').value
-      });
-
       const body = {
         name: document.getElementById('editName').value,
         page_content: document.getElementById('pageContentEditor').innerHTML,
-        header_content: headerData,
-        footer_content: footerData,
         title: document.getElementById('settingsTitle').value,
         slug: document.getElementById('settingsSlug').value,
         description: document.getElementById('settingsDescription').value,
@@ -1083,26 +1020,18 @@
 
     function previewPage() {
       const win = window.open('', '_blank');
-      const headerBrand = document.getElementById('headerBrandName').value || 'Pinnacle Design | Build';
-      const headerBg = document.getElementById('headerBgColor').value;
-      const headerText = document.getElementById('headerTextColor').value;
       const content = document.getElementById('pageContentEditor').innerHTML;
-      const footer = document.getElementById('footerContentEditor').innerHTML;
-      const footerBg = document.getElementById('footerBgColor').value;
-      const footerText = document.getElementById('footerTextColor').value;
 
       win.document.write(`
         <html><head><title>Preview — ${escapeHtml(document.getElementById('settingsTitle').value || 'Page')}</title>
         <style>
           body{font-family:'Plus Jakarta Sans',sans-serif;margin:0;color:#2C3E50;}
-          header{background:${headerBg};color:${headerText};padding:20px 40px;font-size:20px;font-weight:700;}
+          header{background:#1a2b5f;color:#fff;padding:20px 40px;font-size:20px;font-weight:700;}
           main{padding:40px;max-width:800px;margin:0 auto;line-height:1.7;}
-          footer{background:${footerBg};color:${footerText};padding:24px 40px;font-size:13px;}
         </style></head>
         <body>
-          <header>${escapeHtml(headerBrand)}</header>
-          <main>${content || '<p style="color:#999">No content yet.</p>'}</main>
-          <footer>${footer || 'Footer content'}</footer>
+          <header>Pinnacle Design | Build</header>
+          <main>${content || '<p style="color:#999">No content in the legacy Content field — see the Sections tab for what actually publishes.</p>'}</main>
         </body></html>
       `);
       win.document.close();
