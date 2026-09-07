@@ -1,32 +1,20 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
+import { put, del } from '@vercel/blob';
 import { pool } from '../db.js';
 import { requireAuth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const uploadsDir = path.join(__dirname, '../../public/uploads');
-
 const ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml', 'application/pdf']);
 const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB (PDFs run larger than the site's images)
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase();
-    const base = path.basename(file.originalname, ext)
-      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'file';
-    cb(null, `${Date.now()}-${base}${ext}`);
-  }
-});
-
+// Files are held in memory just long enough to stream to Vercel Blob -
+// Vercel's serverless functions have a read-only filesystem, so nothing
+// can be written to disk at runtime.
 const upload = multer({
-  storage,
+  storage: multer.memoryStorage(),
   limits: { fileSize: MAX_FILE_SIZE },
   fileFilter: (req, file, cb) => {
     if (!ALLOWED_TYPES.has(file.mimetype)) {
@@ -35,6 +23,13 @@ const upload = multer({
     cb(null, true);
   }
 });
+
+function blobPathname(originalname) {
+  const ext = path.extname(originalname).toLowerCase();
+  const base = path.basename(originalname, ext)
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'file';
+  return `uploads/${Date.now()}-${base}${ext}`;
+}
 
 router.use(requireAuth);
 
@@ -73,18 +68,23 @@ router.post('/upload', (req, res) => {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
+    let blob;
     try {
-      const fileUrl = `/uploads/${req.file.filename}`;
+      blob = await put(blobPathname(req.file.originalname), req.file.buffer, {
+        access: 'public',
+        contentType: req.file.mimetype,
+      });
+
       const result = await pool.query(
         `INSERT INTO media (filename, file_url, alt_text, file_type, file_size, uploaded_by)
          VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-        [req.file.originalname, fileUrl, req.body.alt_text || '', req.file.mimetype, req.file.size, req.user.id]
+        [req.file.originalname, blob.url, req.body.alt_text || '', req.file.mimetype, req.file.size, req.user.id]
       );
       res.status(201).json(result.rows[0]);
     } catch (error) {
       console.error('Upload save error:', error);
-      // Clean up the orphaned file if the DB insert failed
-      fs.unlink(req.file.path, () => {});
+      // Clean up the orphaned blob if the DB insert failed
+      if (blob) del(blob.url).catch(() => {});
       res.status(500).json({ error: 'Server error' });
     }
   });
@@ -131,8 +131,13 @@ router.delete('/:id', async (req, res) => {
 
     await pool.query('DELETE FROM media WHERE id = $1', [req.params.id]);
 
-    const filePath = path.join(uploadsDir, path.basename(mediaResult.rows[0].file_url));
-    fs.unlink(filePath, () => {}); // best-effort; DB row is already the source of truth
+    // Best-effort; DB row is already the source of truth. Only blob-hosted
+    // files (https://...) can be removed this way - older migrated media
+    // living under the deployed /uploads bundle can't be deleted at runtime.
+    const fileUrl = mediaResult.rows[0].file_url;
+    if (fileUrl && fileUrl.startsWith('http')) {
+      del(fileUrl).catch(() => {});
+    }
 
     res.json({ success: true, message: 'Media deleted' });
   } catch (error) {
