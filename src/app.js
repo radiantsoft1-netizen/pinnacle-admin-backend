@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.js';
 import pagesRoutes from './routes/pages.js';
 import menusRoutes from './routes/menus.js';
@@ -11,13 +13,19 @@ import sectionsRoutes from './routes/sections.js';
 import publicRoutes from './routes/public.js';
 import { pool } from './db.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 // Middleware
 const corsOrigin = process.env.CORS_ORIGIN;
 app.use(cors(corsOrigin ? { origin: corsOrigin } : {}));
 app.use(express.json());
-app.use(express.static('public'));
+// Absolute path, not a bare 'public' string — process.cwd() is unreliable
+// inside a serverless function's runtime and silently resolves to the
+// wrong directory there, even though a relative path works fine locally.
+app.use(express.static(path.join(__dirname, '../public')));
 
 // One-time connectivity check per cold start — cheap, and surfaces bad
 // DATABASE_URL/POSTGRES_URL config immediately in the function logs.

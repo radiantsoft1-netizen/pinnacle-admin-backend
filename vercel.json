@@ -1,5 +1,18 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index" }
-  ]
+    {
+      "source": "/(.*)",
+      "destination": {
+        "type": "service",
+        "service": "pinnacle-admin"
+      }
+    }
+  ],
+  "services": {
+    "pinnacle-admin": {
+      "root": ".",
+      "runtime": "node",
+      "entrypoint": "api/index.js"
+    }
+  }
 }
