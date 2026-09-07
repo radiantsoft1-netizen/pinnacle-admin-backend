@@ -1,0 +1,731 @@
+[
+  {
+    "slug": "home",
+    "title": "Pinnacle Design | Build — General Contracting",
+    "meta_description": "Pinnacle Design | Build — general contracting for residential and commercial construction with craftsmanship and lasting quality.",
+    "meta_keywords": "general contracting, design build, Brampton, GTA, renovation",
+    "h1": "Building Tomorrow's Landmarks Today",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Building Tomorrow's Landmarks Today",
+        "section_content": "From concept to keys, we deliver exceptional residential and commercial construction with precision, integrity, and enduring quality.\n\nCTAs: Start Your Project (/contact), View Our Work (/gallery)",
+        "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+      },
+      {
+        "section_type": "services",
+        "section_title": "Craftsmanship Across Every Scale",
+        "section_content": "Tailored construction solutions designed around your vision, timeline, and budget — delivered with the rigor of a world-class build partner.\n\n- Bathroom Renovation: Full remodels, walk-in showers, tub conversions, and accessible bath design-build.\n- Basement Renovation: Finished living space, entertainment rooms, and income-ready suites.\n- Full Home Renovation: Whole-home design-build renovations aligned with how you live.\n- Construction Project Management: Schedules, trades, budgets, and quality oversight you can trust.\n- Kitchen Renovation: Cabinetry, countertops, lighting, and layouts that work every day.\n- Garden Suite: Design-build garden suites and laneway homes for family or rental use.\n- Home Addition: Rear, side, and second-storey additions integrated with your home.\n- Multiplex Conversion: Convert properties into duplexes or multi-unit layouts where permitted.\n- Garage Conversion: Turn garage space into offices, suites, or comfortable living areas.",
+        "image": null
+      },
+      {
+        "section_type": "process",
+        "section_title": "How We Bring Your Vision to Life",
+        "section_content": "01 Consultation: We listen to your goals, assess the site, and outline scope, budget, and timeline.\n02 Design & Planning: Architectural drawings, permits, and material selections refined to your approval.\n03 Construction: Skilled trades, rigorous QA, and transparent progress updates at every milestone.\n04 Handover: Final walkthrough, warranties, and a build you're proud to call your own.",
+        "image": null
+      },
+      {
+        "section_type": "stats",
+        "section_title": "Company Highlights",
+        "section_content": "150+ Projects Completed\n18+ Years of Experience\n98% Client Satisfaction\n45+ Expert Team Members",
+        "image": null
+      },
+      {
+        "section_type": "gallery",
+        "section_title": "Explore Our Recent Work",
+        "section_content": "A selection of residential and commercial projects showcasing our commitment to detail and design excellence.\n\n- Residential: Hillside Modern Estate — Custom 4-bedroom home with panoramic views\n- Interior: Urban Loft Renovation\n- Commercial: Corporate Headquarters Fit-Out\n- Renovation: Heritage Kitchen Extension\n- Commercial: Mixed-Use Development — Retail ground floor with premium residences above",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
+      },
+      {
+        "section_type": "about",
+        "section_title": "Design-Build Rooted in Downtown Brampton",
+        "section_content": "From a modest interior design firm to integrated architectural design and construction, we help homeowners find their forever homes — seamlessly and effortlessly.\n\n- Cost-effective, sustainable, future-ready design solutions\n- Interior design, architecture, and construction under one roof\n- A diverse team striving for excellence from design to handover",
+        "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80"
+      },
+      {
+        "section_type": "contact",
+        "section_title": "Get in Touch",
+        "section_content": "We respond within one business day. Tell us about your project — we'd love to hear from you.\n\nPhone: +1 226 507 5385\nEmail: info@thepinnaclebuild.com\nHours: Mon – Fri, 8AM – 6PM",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80", "alt": "Modern construction site at dusk" },
+      { "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", "alt": "Modern luxury home exterior" },
+      { "src": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", "alt": "Contemporary living interior" },
+      { "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", "alt": "Commercial office tower" },
+      { "src": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", "alt": "Kitchen and dining open plan" },
+      { "src": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80", "alt": "Construction team on site" },
+      { "src": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80", "alt": "Construction professionals reviewing plans on site" }
+    ]
+  },
+  {
+    "slug": "about",
+    "title": "About Us",
+    "meta_description": "Learn about Pinnacle Design | Build — our mission, vision, Brampton roots, and the team behind integrated design-build solutions.",
+    "meta_keywords": "about pinnacle design build, our team, mission, vision, Brampton",
+    "h1": "Pinnacle Design | Build",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Pinnacle Design | Build",
+        "section_content": "Integrated interior design, architectural design, and construction — helping homeowners find their forever homes seamlessly and effortlessly.",
+        "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+      },
+      {
+        "section_type": "mission-vision",
+        "section_title": "Mission & Vision",
+        "section_content": "Design | Build — strategy, sustainability, and spaces that truly feel like home.\n\nMission — Built for the long term: Provide cost-effective, future-compliant, and environmentally sustainable design solutions — and advise clients on a robust long-term strategy.\n\nVision — Feel at home, always: Make people feel at home in their homes — any time of day, any season — without compromise.",
+        "image": null
+      },
+      {
+        "section_type": "story",
+        "section_title": "From Downtown Brampton to Full Design-Build",
+        "section_content": "Beginning as a modest interior design firm in downtown Brampton, our goal was to assist homeowners in maximizing their space's potential. Quickly, it became second nature for us to become an integral part of their journey towards realizing their dreams. We guided them to look past the walls and floor plans.\n\nOur clients have encouraged us to deliver integrated end-to-end solutions. We provide comprehensive interior and architectural design along with construction services, to assist our customers in finding their forever homes as seamlessly and effortlessly as possible.\n\n- Interior design — space planning & finishes\n- Architecture — drawings & permits\n- Construction — built to last, on schedule",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+      },
+      {
+        "section_type": "stats",
+        "section_title": "Company Highlights",
+        "section_content": "150+ Projects Completed\n18+ Years of Experience\n98% Client Satisfaction\n45+ Expert Team Members",
+        "image": null
+      },
+      {
+        "section_type": "team",
+        "section_title": "Meet the People Behind Your Project",
+        "section_content": "A diverse team with diverse talents — striving for excellence from design through construction to post-completion support.\n\nMohan — Founder: Leads vision and strategy from first conversation to keys in hand.\nKathy Wilson — Designer: Shapes layouts, materials, and finishes that reflect how you actually live.\nBrian Smith — Technician: Keeps drawings, specs, and site details accurate from planning through build.\nGoran Pilic — Technician: Supports on-site execution with precise measurements and quality checks every step.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80", "alt": "Design and construction team collaborating on site" },
+      { "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", "alt": "Warm residential interior design" },
+      { "src": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80", "alt": "Construction and design collaboration" },
+      { "src": "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=500&q=80", "alt": "Detail of a finished renovation" },
+      { "src": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=334,fit=crop,trim=14.545454545454547;0;625.4545454545454;0/m6LvPqGqQ8uE0brv/thumbnail_img_6441-YbNvBQn6LbFboLxZ.jpg", "alt": "Mohan, Founder" },
+      { "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80", "alt": "Kathy Wilson, Designer" },
+      { "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80", "alt": "Brian Smith, Technician" },
+      { "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80", "alt": "Goran Pilic, Technician" }
+    ]
+  },
+  {
+    "slug": "contact",
+    "title": "Contact Us",
+    "meta_description": "Contact Pinnacle Design | Build in Brampton — phone, email, location, and project inquiry form for design-build and renovations.",
+    "meta_keywords": "contact pinnacle design build, Brampton contractor, get a quote",
+    "h1": "Let's Build Something Together",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Let's Build Something Together",
+        "section_content": "Share your renovation or design-build vision — our team responds within one business day with clear next steps.\n\nCall: +1 226 507 5385\nEmail: info@thepinnaclebuild.com",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80"
+      },
+      {
+        "section_type": "trust",
+        "section_title": "Why Reach Out",
+        "section_content": "24h — Response within one business day\nFree — Initial consultation for qualifying projects\nGTA — Brampton & Greater Toronto Area",
+        "image": null
+      },
+      {
+        "section_type": "info",
+        "section_title": "We're Here to Help",
+        "section_content": "Kitchens, basements, additions, or full design-build — tell us what you're planning and we'll guide you from concept to completion.\n\nPhone: +1 226 507 5385\nEmail: info@thepinnaclebuild.com\nOffice: 53 Mullis Cres, Brampton, ON\nBusiness hours: Mon – Fri, 9AM – 5PM\n\n- Licensed & insured design-build team\n- Integrated design, architecture & construction\n- Transparent timelines and budgets",
+        "image": null
+      },
+      {
+        "section_type": "steps",
+        "section_title": "From First Message to Groundbreaking",
+        "section_content": "01 We review your inquiry: Our team reads your project details and matches you with the right design-build specialist.\n02 Discovery call: We schedule a consultation to understand scope, budget, timeline, and your vision for the space.\n03 Proposal & plan: You receive a clear path forward — design direction, milestones, and how we bring your project to life.",
+        "image": null
+      },
+      {
+        "section_type": "map",
+        "section_title": "Downtown Brampton",
+        "section_content": "53 Mullis Cres, Brampton, ON\n\nMeet us by appointment to discuss your renovation or build in person.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80", "alt": "Modern home renovation exterior" }
+    ]
+  },
+  {
+    "slug": "cost-calculator",
+    "title": "Renovation Cost Calculator",
+    "meta_description": "Pinnacle Design | Build — Professional Renovation Cost Calculator. Get accurate instant budget estimates for your home renovation project.",
+    "meta_keywords": "renovation cost calculator, budget estimate, project cost",
+    "h1": "Estimate Your Project Cost",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Estimate Your Project Cost",
+        "section_content": "Get an instant estimate for your renovation project in minutes. We provide accurate budget ranges based on your specific requirements.",
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80"
+      },
+      {
+        "section_type": "calculator-info",
+        "section_title": "How the Estimate Is Calculated",
+        "section_content": "Base price ranges (USD, midpoint used): Bathroom $2,400–$7,200; Kitchen $3,600–$10,800; Basement $4,800–$12,000; Home Addition $6,000–$18,000; General/Full Home $9,600–$30,000.\n\nScope multiplier: Small (500–1000 sqft) x0.8, Medium (1000–2000 sqft) x1.0, Large (2000+ sqft) x1.3.\nFinish level multiplier: Basic x1.0, Standard x1.3, Premium x1.6.\nCondition multiplier: Good x1.0, Average x1.2, Poor x1.4.\nPer-room add-ons: +$1,800 per bathroom, +$2,400 per kitchen.\nAdditional services: Plumbing +$960, Electrical +$1,200, HVAC +$1,440, Flooring +$1,800, Painting +$600, Windows/Doors +$1,200, Landscaping +$720.\n\nA 10% contingency is added to the subtotal, and the final range is displayed at ±15% of that total.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80", "alt": "Construction and renovation planning" }
+    ]
+  },
+  {
+    "slug": "gallery",
+    "title": "Gallery",
+    "meta_description": "Pinnacle Design | Build project gallery — home extensions, hotels, basements, kitchen remodeling, and sun rooms.",
+    "meta_keywords": "project gallery, renovation photos, portfolio, Brampton contractor",
+    "h1": "Our Recent Work",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Our Recent Work",
+        "section_content": "Explore completed projects across extensions, hospitality, basements, kitchens, and sun rooms.",
+        "image": "/images/gallery/home-extension-wide.jpg"
+      },
+      {
+        "section_type": "gallery-category",
+        "section_title": "Home Extension",
+        "section_content": "Rear extension & outdoor living\nSecond-storey addition\nFamily room expansion\nOpen-concept living",
+        "image": "/images/gallery/home-extension-wide.jpg"
+      },
+      {
+        "section_type": "gallery-category",
+        "section_title": "Hotels",
+        "section_content": "Boutique hotel exterior\nGuest suite fit-out\nLobby & lounge\nRestaurant renovation",
+        "image": "/images/gallery/hotels-exterior.jpg"
+      },
+      {
+        "section_type": "gallery-category",
+        "section_title": "Basements",
+        "section_content": "Full basement finishing\nMedia & theatre room\nEntertainment bar\nIn-law suite bedroom",
+        "image": "/images/gallery/basements-living-wide.jpg"
+      },
+      {
+        "section_type": "gallery-category",
+        "section_title": "Kitchen Remodeling",
+        "section_content": "Contemporary kitchen redesign\nIsland & lighting\nKitchen–dining connection\nCustom cabinetry",
+        "image": "/images/gallery/kitchen-wide.jpg"
+      },
+      {
+        "section_type": "gallery-category",
+        "section_title": "Sun Room",
+        "section_content": "Glass sun room addition\nFour-season sun room\nPatio-connected lounge\nRelaxation retreat",
+        "image": "/images/gallery/sun-room-wide.jpg"
+      }
+    ],
+    "images": [
+      { "src": "/images/gallery/home-extension-wide.jpg", "alt": "Modern home extension with large windows" },
+      { "src": "/images/gallery/home-extension-exterior.jpg", "alt": "Two-storey home addition exterior" },
+      { "src": "/images/gallery/home-extension-family-room.jpg", "alt": "Bright family room in home extension" },
+      { "src": "/images/gallery/home-extension-open-plan.jpg", "alt": "Open-plan living after home extension" },
+      { "src": "/images/gallery/hotels-exterior.jpg", "alt": "Hotel pool and exterior at dusk" },
+      { "src": "/images/gallery/hotels-guest-suite.jpg", "alt": "Luxury hotel guest room interior" },
+      { "src": "/images/gallery/hotels-lobby.jpg", "alt": "Hotel lobby lounge seating" },
+      { "src": "/images/gallery/hotels-restaurant.jpg", "alt": "Hotel restaurant dining area" },
+      { "src": "/images/gallery/basements-living-wide.jpg", "alt": "Finished basement living area" },
+      { "src": "/images/gallery/basements-theatre.jpg", "alt": "Basement home theatre room" },
+      { "src": "/images/gallery/basements-bar.jpg", "alt": "Basement bar and entertaining space" },
+      { "src": "/images/gallery/basements-bedroom.jpg", "alt": "Basement bedroom with natural light" },
+      { "src": "/images/gallery/kitchen-wide.jpg", "alt": "Modern white kitchen remodel" },
+      { "src": "/images/gallery/kitchen-island.jpg", "alt": "Kitchen island with pendant lighting" },
+      { "src": "/images/gallery/kitchen-dining.jpg", "alt": "Kitchen open to dining area" },
+      { "src": "/images/gallery/kitchen-cabinetry.jpg", "alt": "Custom cabinetry kitchen detail" },
+      { "src": "/images/gallery/sun-room-wide.jpg", "alt": "Bright sun room with garden views" },
+      { "src": "/images/gallery/sun-room-interior.jpg", "alt": "Sun room interior with natural light" },
+      { "src": "/images/gallery/sun-room-patio.jpg", "alt": "Sun room connected to patio" },
+      { "src": "/images/gallery/sun-room-seating.jpg", "alt": "Sun room seating area" }
+    ]
+  },
+  {
+    "slug": "process",
+    "title": "The Process",
+    "meta_description": "The Pinnacle Design | Build process — from free consultation and contract through construction to completion and move-in.",
+    "meta_keywords": "design build process, renovation process, Brampton",
+    "h1": "Seamless Client Engagement",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Seamless Client Engagement",
+        "section_content": "From Concept to Completion",
+        "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "A Clear Path From First Conversation to Move-In Day",
+        "section_content": "Every Pinnacle Design | Build project follows a transparent, collaborative journey. You'll always know what comes next — from your free consultation through design, construction, and handover.",
+        "image": null
+      },
+      {
+        "section_type": "phase",
+        "section_title": "Phase 01 — Concept Framework",
+        "section_content": "Initiate the custom build process with a welcoming and affirming consultation. We assure you that by the end of the free consultation, you will have a clear understanding of what is required to commence your project, both financially and in other aspects.",
+        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80"
+      },
+      {
+        "section_type": "phase",
+        "section_title": "Phase 02 — Contract",
+        "section_content": "You're prepared to initiate your project. We will start by creating a contract that is clear and agreeable to you. Following that, we will collaborate transparently to develop interior design and architectural plans that will realize your dream project.",
+        "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      },
+      {
+        "section_type": "phase",
+        "section_title": "Phase 03 — Construction",
+        "section_content": "Your imagination — our creation.\n\nTime to give shape to your ideas. From the initial groundbreaking to the final brushstrokes of paint and possession day, we will keep you informed, engaged, and updated throughout the construction process.",
+        "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
+      },
+      {
+        "section_type": "phase",
+        "section_title": "Phase 04 — Completion",
+        "section_content": "We've built it together, and now it's time for you to move in! Before possession day, we'll meet to review the final details. We'll go through everything from your warranty to the inspection, ensuring every detail is covered and all your questions are answered.",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+      },
+      {
+        "section_type": "promise",
+        "section_title": "Transparent. Collaborative. Built to Last.",
+        "section_content": "Whether it's a kitchen renovation or a full design-build, you stay informed at every milestone — with a team that treats your home like our own.\n\n- Free initial consultation\n- Clear contracts & design plans\n- Regular construction updates\n- Warranty & final walkthrough",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80", "alt": "Architectural plans and construction collaboration" },
+      { "src": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80", "alt": "Client consultation meeting" },
+      { "src": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", "alt": "Reviewing architectural plans and contract" },
+      { "src": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80", "alt": "Active construction on site" },
+      { "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", "alt": "Completed modern home ready for move-in" }
+    ]
+  },
+  {
+    "slug": "privacy-policy",
+    "title": "Privacy Policy",
+    "meta_description": "Privacy Policy for Pinnacle Design | Build — how we collect, use, and protect your personal information.",
+    "meta_keywords": "privacy policy, pinnacle design build",
+    "h1": "Privacy Policy",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Privacy Policy",
+        "section_content": "Last updated: May 28, 2026",
+        "image": "/images/legal-hero.jpg"
+      },
+      {
+        "section_type": "legal",
+        "section_title": "Privacy Policy — Full Text",
+        "section_content": "Pinnacle Design | Build (\"Pinnacle,\" \"we,\" \"us,\" or \"our\") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and protect personal information when you visit thepinnaclebuild.com, contact us, request a quote, or use our design-build and general contracting services in Brampton and the Greater Toronto Area.\n\n1. Who we are\nPinnacle Design | Build provides residential and commercial design-build, renovations, and construction project management. For privacy-related questions, contact us at info@thepinnaclebuild.com or +1 226 507 5385.\n\n2. Information we collect\nWe may collect: contact details (name, email, phone, property address); project information (renovation goals, photos, budgets, timelines); communications (messages, meeting notes, correspondence); website usage (IP address, browser type, pages visited via cookies/analytics); newsletter email address if subscribed.\n\n3. How we use your information\nTo respond to inquiries and provide quotes/consultations; plan, manage, and deliver construction and design-build services; communicate about schedules, contracts, permits, and project updates; send opted-in newsletters/marketing (unsubscribe anytime); improve our website and services; comply with legal, regulatory, and insurance requirements.\n\n4. Legal basis and consent\nWe collect and use personal information with your consent, and as necessary to perform a contract, pursue legitimate business interests, or meet legal obligations applicable in Ontario and Canada.\n\n5. Sharing of information\nWe do not sell your personal information. We may share it with trades/subcontractors/designers/engineers/suppliers as needed for your project; service providers (email, hosting, analytics, CRM) under confidentiality obligations; professional advisors (lawyers, accountants, insurers) when required; authorities if required by law.\n\n6. Cookies and analytics\nOur website may use cookies and similar technologies to remember preferences and understand visitor behaviour. You can adjust cookie settings in your browser; disabling cookies may affect certain features.\n\n7. Data retention\nWe retain personal information only as long as needed for the purposes in this policy, including completing projects, resolving disputes, and record-keeping. We securely delete or anonymize information when no longer required.\n\n8. Security\nWe use reasonable administrative, technical, and physical safeguards. No method of transmission over the internet is completely secure; we cannot guarantee absolute security.\n\n9. Your rights\nYou may request access to, correction of, or deletion of your personal information, or withdraw consent for certain uses (subject to legal/contractual limits). Contact info@thepinnaclebuild.com; we respond within a reasonable timeframe.\n\n10. Third-party links\nOur website may link to third-party sites. We are not responsible for their privacy practices.\n\n11. Children\nOur services and website are not directed to individuals under 16. We do not knowingly collect personal information from children.\n\n12. Changes to this policy\nWe may update this Privacy Policy from time to time. The \"Last updated\" date reflects changes. Continued use after updates constitutes acceptance.\n\n13. Contact\nPinnacle Design | Build — Email: info@thepinnaclebuild.com, Phone: +1 226 507 5385. See also our Terms of Use.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "/images/legal-hero.jpg", "alt": "Modern office workspace" }
+    ]
+  },
+  {
+    "slug": "terms-of-use",
+    "title": "Terms of Use",
+    "meta_description": "Terms of Use for the Pinnacle Design | Build website and online services.",
+    "meta_keywords": "terms of use, pinnacle design build",
+    "h1": "Terms of Use",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Terms of Use",
+        "section_content": "Last updated: May 28, 2026",
+        "image": "/images/legal-hero.jpg"
+      },
+      {
+        "section_type": "legal",
+        "section_title": "Terms of Use — Full Text",
+        "section_content": "These Terms of Use (\"Terms\") govern your access to and use of the Pinnacle Design | Build website and related online content. By using our website, you agree to these Terms. If you do not agree, please do not use the site.\n\n1. About Pinnacle Design | Build\nPinnacle Design | Build (\"Pinnacle,\" \"we,\" \"us,\" or \"our\") provides design-build, renovations, additions, garden suites, and construction project management services in Brampton and the Greater Toronto Area. Contact: info@thepinnaclebuild.com, +1 226 507 5385.\n\n2. Website use\nYou may use this website for lawful purposes only. You agree not to: violate applicable laws; attempt unauthorized access to our systems, accounts, or data; transmit malware, spam, or harmful code; copy, scrape, or republish substantial portions of the site without written permission; misrepresent your identity or affiliation with Pinnacle.\n\n3. No professional advice on the website\nContent on this website is provided for informational purposes only and does not constitute engineering, architectural, legal, or financial advice. Project-specific advice is provided only through a formal consultation and written agreement.\n\n4. Quotes, estimates, and contracts\nInformation submitted through contact forms or email does not create a binding contract. Estimates are subject to site conditions, scope confirmation, permits, and signed agreements. Construction services are governed by separate written contracts that supersede general website content where they conflict.\n\n5. Intellectual property\nText, logos, images, graphics, and layout on this website are owned by Pinnacle Design | Build or used with permission. You may not reproduce, distribute, or create derivative works without our prior written consent, except for personal, non-commercial viewing or sharing links to our pages.\n\n6. User submissions\nIf you send photos, drawings, messages, or other materials, you represent that you have the right to share them and grant us a non-exclusive license to use them for evaluating and delivering your project. We handle personal information per our Privacy Policy.\n\n7. Third-party links and tools\nThe website may reference third-party websites or tools. We do not control and are not responsible for third-party content, policies, or practices. Use of third-party services is at your own risk.\n\n8. Disclaimer of warranties\nThe website is provided \"as is\" and \"as available.\" To the fullest extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant the site will be uninterrupted, error-free, or free of harmful components.\n\n9. Limitation of liability\nTo the fullest extent permitted by law, Pinnacle Design | Build and its directors, employees, and agents shall not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the website. Our total liability for claims related to website use shall not exceed CAD $100, except where liability cannot be excluded by law. Nothing in these Terms limits liability for death or personal injury caused by negligence, fraud, or other matters that cannot be limited under Ontario law.\n\n10. Indemnity\nYou agree to indemnify and hold harmless Pinnacle Design | Build from claims arising out of your misuse of the website or violation of these Terms, except to the extent caused by our negligence or willful misconduct.\n\n11. Governing law\nThese Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein. Disputes are subject to the exclusive jurisdiction of the courts of Ontario, unless otherwise required by law.\n\n12. Changes\nWe may revise these Terms at any time. The \"Last updated\" date indicates the latest version. Continued use after changes are posted constitutes acceptance.\n\n13. Severability\nIf any provision of these Terms is found unenforceable, the remaining provisions remain in full force and effect.\n\n14. Contact\nPinnacle Design | Build — Email: info@thepinnaclebuild.com, Phone: +1 226 507 5385. See also our Privacy Policy.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "/images/legal-hero.jpg", "alt": "Modern office workspace" }
+    ]
+  },
+  {
+    "slug": "kitchen-renovation",
+    "title": "Kitchen Renovation",
+    "meta_description": "Pinnacle Design | Build — Kitchen Renovation in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "kitchen renovation, Brampton, GTA, cabinetry, countertops",
+    "h1": "Kitchen Renovation",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Kitchen Renovation",
+        "section_content": "Kitchen remodels with smarter layouts, quality cabinetry, and cohesive design-build delivery.",
+        "image": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Kitchen Renovation in Brampton & the Greater Toronto Area",
+        "section_content": "We renovate kitchens from cabinet layout and lighting to countertops, backsplash, plumbing, and appliances — integrated with the rest of your home.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800&q=80"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Kitchen Renovation Services",
+        "section_content": "Layout & cabinetry: Storage, workflow, and custom or semi-custom boxes\nCountertops & backsplash: Stone, quartz, tile, and durable surfaces\nLighting & electrical: Task, ambient, and feature lighting plans\nOpen to dining/living: Structural and design coordination",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. Learn about our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1920&q=80", "alt": "Modern kitchen renovation" }
+    ]
+  },
+  {
+    "slug": "bathroom-renovation",
+    "title": "Bathroom Renovation",
+    "meta_description": "Pinnacle Design | Build — bathroom renovation in Brampton and the GTA. Full remodels, walk-in showers, tub conversions, accessible baths, and design-build quality.",
+    "meta_keywords": "bathroom renovation, Brampton, GTA, walk-in shower, accessible bathroom",
+    "h1": "Bathroom Renovation",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Bathroom Renovation",
+        "section_content": "Design-build bathroom remodels in Brampton & the GTA — built properly behind the tile, finished beautifully in front.",
+        "image": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Bathroom Renovation in Brampton & the Greater Toronto Area",
+        "section_content": "Pinnacle Design | Build delivers complete bathroom renovation services for homeowners across Brampton and the GTA. We handle full bathroom remodels, walk-in showers, tub-to-shower conversions, accessible bathrooms, custom vanities, tile installation, plumbing fixtures, lighting, and custom bathroom construction.\n\nA bathroom renovation is not only about choosing beautiful tiles and fixtures. The most important work is often behind the walls — waterproofing, proper slope, plumbing, ventilation, tile preparation, and clean installation. We focus on bathrooms that look stunning, function properly, and last for years.\n\nWhether you are updating a small bath, renovating an ensuite, creating a luxury master bathroom, or converting a tub into a modern walk-in shower, our integrated design-build team plans and completes your project with clear communication from start to finish.",
+        "image": "/images/bathroom-intro.jpg"
+      },
+      {
+        "section_type": "trust",
+        "section_title": "Built for Quality & Peace of Mind",
+        "section_content": "Poor bathroom work can lead to leaks, moisture, mold, and costly repairs. We focus on preparation, craftsmanship, and honesty.\n\nLicensed design-build team: Interior design, architecture, and construction coordinated under one roof.\nTransparent estimates: Clear quote breakdown and payment schedule before work begins.\nProper waterproofing: Behind-the-wall details that protect your home long after install day.\nProgress updates: Stay informed throughout demolition, rough-in, tile, and finishing.\nRespectful job sites: Dust control, floor protection, and a clean, professional workspace.\nGTA service area: Serving Brampton, Mississauga, Toronto, Vaughan, Markham, and nearby communities.",
+        "image": null
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Bathroom Renovation Services",
+        "section_content": "Full Bathroom Renovation: From demolition to finishing — walls, waterproofing, tile, vanity, fixtures, toilet, lighting, trim, shower glass, and final details. Ideal when your bath is outdated, damaged, or no longer fits your lifestyle.\nWalk-In Shower Renovation: Layout, tile design, waterproofing, drain slope, niches, benches, fixtures, and glass. A shower that looks open, drains properly, and is easy to maintain.\nTub to Shower Conversion: Replace your bathtub with a shower tailored to your space, budget, and daily needs — popular for ensuites, rentals, and homes where the tub goes unused.\nAccessible Bathrooms: Low-threshold showers, wider openings, grab bars, shower seats, non-slip flooring, easy-reach controls, and layouts designed for safer movement.\nFixture & Upgrade Work: Vanity, faucet, toilet, shower fixtures, mirrors, lighting, fan replacement, hardware, and minor drywall or paint repairs when a full gut isn't required.\nCustom Bathroom Design: Custom vanities, heated floors, large-format tile, feature walls, luxury fixtures, LED mirrors, designer lighting, glass enclosures, and smarter storage.",
+        "image": null
+      },
+      {
+        "section_type": "behind",
+        "section_title": "Hidden Work That Protects Your Home",
+        "section_content": "Many bathroom problems start when prep behind the tile was skipped. We pay attention to waterproofing, slope, ventilation, and coordination that keeps your renovation performing for years.\n\n- Shower waterproofing — helps prevent water damage\n- Correct drain slope — water drains as it should\n- Wall preparation — tile stays straight and secure\n- Moisture-resistant materials — reduces humidity issues\n- Plumbing & electrical coordination — fixtures, fans, heated floors\n- Proper ventilation — healthier air and surfaces\n- Dust control & protection — your home stays cared for",
+        "image": null
+      },
+      {
+        "section_type": "process",
+        "section_title": "Our Bathroom Renovation Process",
+        "section_content": "01 First call or email: Share photos and a short description of your bathroom and goals.\n02 Consultation: We review layout, budget, design ideas, and scope by phone or in person.\n03 Ballpark review: General price range and factors that affect cost.\n04 On-site visit: We assess existing conditions and refine the plan.\n05 Detailed estimate: Written scope, payment schedule, and timeline.\n06 Construction: Demolition through finishing with regular progress updates.\n07 Final walkthrough: We review the completed bathroom with you together.",
+        "image": null
+      },
+      {
+        "section_type": "benefits",
+        "section_title": "Why Renovate Your Bathroom?",
+        "section_content": "Improved daily function: Better layout, storage, lighting, and everyday use.\nGreater safety: Non-slip surfaces, improved lighting, and accessible options.\nModern design: Update the look and feel of one of your home's most-used rooms.\nMoisture protection: Reduce the risk of leaks and long-term water damage.\nAdded home value: Bathrooms are among the top spaces buyers evaluate.",
+        "image": null
+      },
+      {
+        "section_type": "gallery-teaser",
+        "section_title": "Bathroom Projects",
+        "section_content": "Explore kitchens, basements, extensions, and more in our project gallery. View Gallery at /gallery.",
+        "image": null
+      },
+      {
+        "section_type": "packages",
+        "section_title": "Bathroom Renovation Packages",
+        "section_content": "[PLACEHOLDER: Copy explaining package differences and how to choose]\n\nTier table — Package | Best For | Budget Range | Timeline | Warranty:\nBasic | [PACKAGE DESCRIPTION] | $9,000–$18,000 | 1-2 weeks | 6 months waterproofing\nStandard | [PACKAGE DESCRIPTION] | $17,000–$29,000 | 2-3 weeks | 1 year waterproofing\nPremium | [PACKAGE DESCRIPTION] | $24,000–$41,500+ | 3-4 weeks | 2 years waterproofing\n\nStandard Bathroom Renovation — Estimated Budget by Size:\nSmall bathroom $17,000–$19,000; Ensuite bathroom $19,500–$22,500; Master bathroom $25,000–$29,000.\n\nPremium Bathroom Renovation — Estimated Budget by Size:\nSmall bathroom $24,000–$27,500; Ensuite bathroom $27,000–$31,500; Master bathroom $35,000–$41,500+.\n\nNote: Final pricing depends on site conditions, bathroom size, layout, materials, design details, plumbing, electrical work, waterproofing system, and custom features. Contact us for a detailed estimate.",
+        "image": null
+      },
+      {
+        "section_type": "payment-plan",
+        "section_title": "Transparent Payment Plan",
+        "section_content": "[PLACEHOLDER: Explanation of payment structure and project management benefits]\n\nBefore starting the project: 30%\nBefore tiling begins: 30%\nAfter tile installation: 30%\nUpon final completion: 10%\n\n[PLACEHOLDER: Paragraph explaining why this payment structure keeps projects organized, builds confidence, and allows homeowners to verify work completion at each stage]",
+        "image": null
+      },
+      {
+        "section_type": "service-areas",
+        "section_title": "Bathroom Renovations in Your Area",
+        "section_content": "We serve Brampton, Mississauga, Toronto, Vaughan, Markham, and surrounding communities in the Greater Toronto Area.\n\nBrampton (Caledon, Georgetown), Mississauga (Milton, Oakville), Toronto (North York, Scarborough, Etobicoke), Vaughan (Woodbridge, Richmond Hill), Markham (Stouffville, Unionville).\n\nDon't see your community listed? Contact us — we may be able to service your area.",
+        "image": null
+      },
+      {
+        "section_type": "pricing-banner",
+        "section_title": "Contact Us",
+        "section_content": "[PLACEHOLDER: Opening statement about transparent pricing and ready to discuss budget]",
+        "image": null
+      },
+      {
+        "section_type": "faq",
+        "section_title": "Bathroom Renovation Questions",
+        "section_content": "Q: How much does a bathroom renovation cost in the GTA?\nA: Costs depend on size, layout changes, plumbing, electrical, tile, waterproofing, and fixtures. As a guide: basic updates often run $9,000–$18,000; standard full renovations $17,000–$29,000; premium or luxury baths $24,000–$41,500+. We provide a detailed estimate after reviewing your space.\n\nQ: How long does a bathroom renovation take?\nA: Basic projects may take 1–2 weeks. A standard full renovation is usually 2–3 weeks. Premium or complex bathrooms may take 3–4 weeks or longer depending on materials and site conditions.\n\nQ: What is included in a full bathroom renovation?\nA: Typically demolition, wall prep, waterproofing, tile, plumbing fixtures, vanity, toilet, shower or tub, lighting, fan, painting, trim, mirror, and final finishing — scoped to your package and estimate.\n\nQ: Do I need a permit?\nA: Permits may be required for structural changes, major plumbing relocation, electrical work, or layout changes affecting building systems. Cosmetic updates may not. We review scope and guide you accordingly.\n\nQ: Do you build accessible bathrooms?\nA: Yes. We can include low-threshold showers, grab bars, shower seats, wider openings, non-slip flooring, and layouts designed for safer movement.\n\nQ: Do you help with material selection?\nA: Yes. We help you choose tile, vanities, faucets, mirrors, lighting, and accessories — and can coordinate with trusted suppliers for your budget and style.\n\nQ: Should I have a design idea before starting?\nA: Having goals and reference ideas helps establish timeline and budget. Our design-build team can also develop layouts and selections with you if you are starting from scratch.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80", "alt": "Modern renovated bathroom interior" },
+      { "src": "/images/bathroom-intro.jpg", "alt": "Spa-like bathroom with walk-in shower" }
+    ]
+  },
+  {
+    "slug": "basement-renovation",
+    "title": "Basement Renovation",
+    "meta_description": "Pinnacle Design | Build — Basement Renovation in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "basement renovation, Brampton, GTA, basement finishing, in-law suite",
+    "h1": "Basement Renovation",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Basement Renovation",
+        "section_content": "Transform unused basement space into comfortable living, entertainment, or income-ready suites.",
+        "image": "/images/basement-hero.jpg"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Basement Renovation in Brampton & the Greater Toronto Area",
+        "section_content": "We finish basements with proper moisture management, framing, electrical, insulation, and code-aware details — from family rooms to legal secondary suites.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "/images/basement-intro.jpg"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Basement Renovation Services",
+        "section_content": "Full basement finishing: Layout, permits, and complete build-out\nEntertainment & media rooms: Comfortable, sound-aware spaces\nIn-law & rental suites: Where permitted, with proper egress and services\nWet bars & bathrooms: Coordinated plumbing and waterproofing",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "/images/basement-hero.jpg", "alt": "Basement renovation construction in progress" },
+      { "src": "/images/basement-intro.jpg", "alt": "Finished basement living space with modern renovation" }
+    ]
+  },
+  {
+    "slug": "full-home-renovation",
+    "title": "Full Home Renovation",
+    "meta_description": "Pinnacle Design | Build — Full Home Renovation in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "full home renovation, Brampton, GTA, whole home remodel",
+    "h1": "Full Home Renovation",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Full Home Renovation",
+        "section_content": "Whole-home design-build renovations that align layout, structure, and finishes with how you live.",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Full Home Renovation in Brampton & the Greater Toronto Area",
+        "section_content": "Pinnacle Design | Build coordinates interior design, architectural updates, and construction so your full home renovation moves forward with one team and one clear plan.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Full Home Renovation Services",
+        "section_content": "Layout & flow updates: Open concepts, reconfigured rooms, and improved function\nStructural coordination: Openings, beams, and code-compliant changes\nInterior & exterior scope: Kitchens, baths, flooring, and facades\nPhased or full gut: Schedules that respect your occupancy needs",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80", "alt": "Renovated modern home interior" }
+    ]
+  },
+  {
+    "slug": "home-addition",
+    "title": "Home Addition",
+    "meta_description": "Pinnacle Design | Build — Home Addition in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "home addition, Brampton, GTA, second storey addition",
+    "h1": "Home Addition",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Home Addition",
+        "section_content": "Rear, side, and second-storey additions that expand your home with seamless design-build integration.",
+        "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Home Addition in Brampton & the Greater Toronto Area",
+        "section_content": "Add the space you need — family rooms, bedrooms, or expanded kitchens — with structural engineering, matching exteriors, and interior flows that feel original to the home.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Home Addition Services",
+        "section_content": "Rear & side expansions: Single-storey bumps and wings\nSecond-storey additions: Engineered loads and stair integration\nExterior matching: Rooflines, cladding, and windows\nFull interior tie-in: Flooring, HVAC, and open plans",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80", "alt": "Home addition exterior" }
+    ]
+  },
+  {
+    "slug": "garage-conversion",
+    "title": "Garage Conversion",
+    "meta_description": "Pinnacle Design | Build — Garage Conversion in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "garage conversion, Brampton, GTA, garage to living space",
+    "h1": "Garage Conversion",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Garage Conversion",
+        "section_content": "Turn underused garage space into offices, suites, gyms, or living areas with proper insulation and code compliance.",
+        "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Garage Conversion in Brampton & the Greater Toronto Area",
+        "section_content": "Garage conversions require thoughtful structure, insulation, moisture control, and permits. We deliver comfortable, legal living space from your existing footprint.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Garage Conversion Services",
+        "section_content": "Insulated living space: Thermal, air, and vapour control\nHome office & studio: Quiet, bright work-from-home zones\nIn-law suites: Where zoning and building code allow\nNew openings & services: Windows, HVAC, plumbing, and electrical",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=80", "alt": "Converted garage living space" }
+    ]
+  },
+  {
+    "slug": "garden-suite",
+    "title": "Garden Suite",
+    "meta_description": "Pinnacle Design | Build — Garden Suite in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "garden suite, laneway home, Brampton, GTA",
+    "h1": "Garden Suite",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Garden Suite",
+        "section_content": "Design-build garden suites and laneway homes for family, rental, or multigenerational living.",
+        "image": "/images/garden-suite-hero.jpg"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Garden Suite in Brampton & the Greater Toronto Area",
+        "section_content": "We help homeowners navigate garden suite feasibility, design, permits, and construction — delivering a self-contained unit that meets local requirements.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "/images/garden-suite-intro.jpg"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Garden Suite Services",
+        "section_content": "Feasibility & zoning review: Understand what is possible on your lot\nDesign & permits: Drawings and submissions coordinated\nNew build & services: Foundation, utilities, and envelope\nInterior finishing: Move-in ready suites with quality finishes",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "/images/garden-suite-hero.jpg", "alt": "Garden suite home under construction" },
+      { "src": "/images/garden-suite-intro.jpg", "alt": "Garden suite construction in Brampton and the Greater Toronto Area" }
+    ]
+  },
+  {
+    "slug": "multiplex-conversion",
+    "title": "Multiplex Conversion",
+    "meta_description": "Pinnacle Design | Build — Multiplex Conversion in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "multiplex conversion, duplex, triplex, Brampton, GTA",
+    "h1": "Multiplex Conversion",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Multiplex Conversion",
+        "section_content": "Convert single-family properties into duplexes, triplexes, or multi-unit layouts where permitted.",
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Multiplex Conversion in Brampton & the Greater Toronto Area",
+        "section_content": "We support multiplex conversions with layout planning, separate entrances, fire and sound separation, and services — aligned with municipal rules and your investment goals.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Multiplex Conversion Services",
+        "section_content": "Unit layout planning: Efficient floor plans and egress\nSeparation & fire code: Assemblies, doors, and inspections\nSeparate utilities: Electrical, plumbing, and metering coordination\nRental-ready finishes: Durable materials for multi-tenant use",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80", "alt": "Multiplex residential building" }
+    ]
+  },
+  {
+    "slug": "construction-project-management",
+    "title": "Construction Project Management",
+    "meta_description": "Pinnacle Design | Build — Construction Project Management in Brampton and the GTA. Design-build quality, transparent communication.",
+    "meta_keywords": "construction project management, Brampton, GTA",
+    "h1": "Construction Project Management",
+    "sections": [
+      {
+        "section_type": "hero",
+        "section_title": "Construction Project Management",
+        "section_content": "Professional oversight for schedules, trades, budgets, and quality on complex builds.",
+        "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80"
+      },
+      {
+        "section_type": "intro",
+        "section_title": "Construction Project Management in Brampton & the Greater Toronto Area",
+        "section_content": "Whether you are mid-renovation or planning a major build, our project management keeps contractors aligned, milestones visible, and your investment protected.\n\nOur integrated team handles planning, permits where required, trades, and finishing — with clear communication from consultation through completion.",
+        "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80"
+      },
+      {
+        "section_type": "offerings",
+        "section_title": "Construction Project Management Services",
+        "section_content": "Schedule & trade coordination: Clear sequencing and site logistics\nBudget tracking: Transparent reporting and change control\nQuality inspections: Work reviewed against scope and standards\nOwner representation: We advocate for your goals on site",
+        "image": null
+      },
+      {
+        "section_type": "process-link",
+        "section_title": "From Consultation to Completion",
+        "section_content": "We follow a clear design-build process — consultation, scope, estimate, construction, and walkthrough. View our full process at /process.",
+        "image": null
+      }
+    ],
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80", "alt": "Construction planning on site" }
+    ]
+  }
+]
