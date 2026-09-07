@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/pinnacle_admin'
+  connectionString: process.env.POSTGRES_URL || process.env.DATABASE_URL || 'postgresql://localhost:5432/pinnacle_admin'
 });
 
 async function setupAdminUsers() {

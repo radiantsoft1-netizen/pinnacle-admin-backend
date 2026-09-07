@@ -17,7 +17,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/pinnacle_admin'
+  connectionString: process.env.POSTGRES_URL || process.env.DATABASE_URL || 'postgresql://localhost:5432/pinnacle_admin'
 });
 
 const ADMIN_ID = 1; // admin@pinnaclebuild.com, confirmed via psql before running this

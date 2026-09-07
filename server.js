@@ -1,68 +1,10 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
-import { Pool } from 'pg';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import authRoutes from './src/routes/auth.js';
-import pagesRoutes from './src/routes/pages.js';
-import menusRoutes from './src/routes/menus.js';
-import contactsRoutes from './src/routes/contacts.js';
-import quotesRoutes from './src/routes/quotes.js';
-import mediaRoutes from './src/routes/media.js';
-import settingsRoutes from './src/routes/settings.js';
-import sectionsRoutes from './src/routes/sections.js';
-import publicRoutes from './src/routes/public.js';
-
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import app from './src/app.js';
 
-const app = express();
-
-// Middleware
-const corsOrigin = process.env.CORS_ORIGIN;
-app.use(cors(corsOrigin ? { origin: corsOrigin } : {}));
-app.use(express.json());
-app.use(express.static('public'));
-
-// Database Connection
-export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/pinnacle_admin'
-});
-
-// Test database connection
-pool.query('SELECT NOW()', (err, result) => {
-  if (err) {
-    console.error('Database connection error:', err);
-  } else {
-    console.log('✅ Database connected at', result.rows[0].now);
-  }
-});
-
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/pages', pagesRoutes);
-app.use('/api/menus', menusRoutes);
-app.use('/api/contacts', contactsRoutes);
-app.use('/api/quotes', quotesRoutes);
-app.use('/api/media', mediaRoutes);
-app.use('/api/settings', settingsRoutes);
-app.use('/api/sections', sectionsRoutes);
-app.use('/api/public', publicRoutes);
-
-// Redirect root to login
-app.get('/', (req, res) => {
-  res.redirect('/login.html');
-});
-
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ error: 'Not found' });
-});
-
-// Start Server
+// Local dev / any host that runs a long-lived process (not used on Vercel —
+// see api/index.js, which exports the same app for the serverless runtime).
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`\n🚀 Pinnacle Admin Backend running on http://localhost:${PORT}`);
