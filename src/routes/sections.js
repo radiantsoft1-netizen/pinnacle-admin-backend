@@ -6,6 +6,26 @@ const router = express.Router();
 
 router.use(requireAuth);
 
+// LIST SECTIONS FOR A PAGE
+router.get('/', async (req, res) => {
+  try {
+    const { page_id } = req.query;
+    if (!page_id) {
+      return res.status(400).json({ error: 'page_id query param is required' });
+    }
+    const result = await pool.query(
+      `SELECT ps.*, m.file_url AS image_url
+       FROM page_sections ps LEFT JOIN media m ON m.id = ps.image_id
+       WHERE ps.page_id = $1 ORDER BY ps.section_order ASC, ps.id ASC`,
+      [page_id]
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error('List sections error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // GET SINGLE SECTION
 router.get('/:id', async (req, res) => {
   try {

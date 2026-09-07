@@ -413,14 +413,21 @@
             </div>
 
             <div class="editor-tabs">
-              <div class="editor-tab active" data-tab="content" onclick="switchPageTab('content')">Content</div>
+              <div class="editor-tab active" data-tab="sections" onclick="switchPageTab('sections')">Sections</div>
+              <div class="editor-tab" data-tab="content" onclick="switchPageTab('content')">Content</div>
               <div class="editor-tab" data-tab="header" onclick="switchPageTab('header')">Header</div>
               <div class="editor-tab" data-tab="footer" onclick="switchPageTab('footer')">Footer</div>
               <div class="editor-tab" data-tab="settings" onclick="switchPageTab('settings')">Settings</div>
             </div>
 
             <div class="editor-body">
-              <div class="editor-pane active" data-pane="content">
+              <div class="editor-pane active" data-pane="sections">
+                <p class="hint" style="margin-bottom:14px;">This is the content actually shown on the live website (fetched from <code>/api/public/pages/{slug}</code>). The "Content" tab below is a separate, older single-block field that most pages don't use.</p>
+                <div id="sectionsEmpty" class="hint" style="display:none;">No sections on this page yet.</div>
+                <div id="sectionsList"></div>
+              </div>
+
+              <div class="editor-pane" data-pane="content">
                 <div class="form-group">
                   <label>Page Content</label>
                   <div class="rte-toolbar" data-target="pageContentEditor">
@@ -900,6 +907,7 @@
         if (!res.ok) throw new Error('Failed to load page');
         currentPage = await res.json();
         populatePageEditor();
+        loadSections();
         renderPageList();
       } catch (e) {
         showToast('Could not load page', 'error');
@@ -940,11 +948,86 @@
       document.getElementById('settingsOrder').value = currentPage.page_order ?? 0;
 
       populatePageParentOptions();
-      switchPageTab('content');
+      switchPageTab('sections');
       isPageDirty = false;
     }
 
     function safeParse(str) { try { return JSON.parse(str) || {}; } catch (e) { return {}; } }
+
+    let currentSections = [];
+
+    async function loadSections() {
+      if (!currentPage) return;
+      const list = document.getElementById('sectionsList');
+      const empty = document.getElementById('sectionsEmpty');
+      list.innerHTML = '<p class="hint">Loading…</p>';
+      try {
+        const res = await fetch(`/api/sections?page_id=${currentPage.id}`, { headers: authHeaders });
+        if (!res.ok) throw new Error('Failed to load sections');
+        currentSections = await res.json();
+        renderSections();
+      } catch (e) {
+        list.innerHTML = '';
+        showToast('Could not load sections', 'error');
+      }
+    }
+
+    function renderSections() {
+      const list = document.getElementById('sectionsList');
+      const empty = document.getElementById('sectionsEmpty');
+      empty.style.display = currentSections.length === 0 ? 'block' : 'none';
+      list.innerHTML = currentSections.map((s, i) => `
+        <div class="glass-card" style="margin-bottom:14px; padding:16px;">
+          <div class="form-row" style="align-items:flex-end;">
+            <div class="form-group" style="flex:2;">
+              <label>Title <span class="hint">(${escapeHtml(s.section_type || 'section')}, order ${s.section_order})</span></label>
+              <input type="text" value="${escapeHtml(s.section_title || '')}" data-field="section_title" data-id="${s.id}" oninput="markSectionDirty(${s.id})">
+            </div>
+            <div class="form-group" style="flex:0 0 90px;">
+              <label>Order</label>
+              <input type="number" value="${s.section_order ?? i}" data-field="section_order" data-id="${s.id}" oninput="markSectionDirty(${s.id})">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Content</label>
+            <textarea rows="4" data-field="section_content" data-id="${s.id}" oninput="markSectionDirty(${s.id})">${escapeHtml(s.section_content || '')}</textarea>
+          </div>
+          <div class="form-row" style="align-items:center;">
+            <div class="form-group" style="flex:1;">
+              ${s.image_url ? `<img src="${escapeHtml(s.image_url)}" alt="" style="max-height:60px; border-radius:6px; display:block; margin-bottom:6px;">` : '<span class="hint">No image</span>'}
+              <label>Media ID</label>
+              <input type="number" value="${s.image_id ?? ''}" placeholder="none" data-field="image_id" data-id="${s.id}" oninput="markSectionDirty(${s.id})">
+            </div>
+            <button class="btn-primary" onclick="saveSection(${s.id})" id="save-section-${s.id}">Save Section</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function markSectionDirty(id) {
+      const btn = document.getElementById(`save-section-${id}`);
+      if (btn) btn.textContent = 'Save Section*';
+    }
+
+    async function saveSection(id) {
+      const container = document.querySelector(`[data-id="${id}"]`)?.closest('.glass-card');
+      if (!container) return;
+      const body = {};
+      container.querySelectorAll('[data-field]').forEach(el => {
+        const field = el.dataset.field;
+        body[field] = field === 'section_order' ? (parseInt(el.value, 10) || 0)
+          : field === 'image_id' ? (el.value === '' ? '' : parseInt(el.value, 10))
+          : el.value;
+      });
+      try {
+        const res = await fetch(`/api/sections/${id}`, { method: 'PUT', headers: authHeaders, body: JSON.stringify(body) });
+        if (!res.ok) throw new Error('Save failed');
+        showToast('Section saved');
+        loadSections();
+      } catch (e) {
+        showToast('Could not save section', 'error');
+      }
+    }
 
     function switchPageTab(tab) {
       document.querySelectorAll('#section-pages .editor-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
