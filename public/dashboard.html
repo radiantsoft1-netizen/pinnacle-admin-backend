@@ -35,43 +35,48 @@
     background:
       radial-gradient(ellipse 900px 500px at 100% -10%, rgba(244,196,48,.06), transparent 60%),
       linear-gradient(160deg,#F4F6FA 0%,#FFFFFF 55%);
-    color:#4A5568; display:flex; flex-direction:column; min-height:100vh;
+    color:#4A5568; display:flex; flex-direction:row; min-height:100vh;
   }
   a { text-decoration:none; }
   button { font-family:inherit; }
 
-  /* ===== STICKY HEAD ===== */
-  .page-head { position:sticky; top:0; z-index:100; }
-  .topbar {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
-    height:88px; display:flex; align-items:center;
-    justify-content:space-between; padding:0 40px; box-shadow:0 4px 30px rgba(0,0,0,.2);
+  /* ===== LEFT SIDEBAR ===== */
+  .sidebar {
+    width:250px; flex-shrink:0; height:100vh; position:sticky; top:0; z-index:100;
+    background: linear-gradient(190deg, var(--navy) 0%, var(--navy-light) 100%);
+    display:flex; flex-direction:column; box-shadow:4px 0 30px rgba(0,0,0,.18);
     position:relative; overflow:hidden;
   }
-  .topbar::after {
+  .sidebar::after {
     content:''; position:absolute; inset:0; pointer-events:none;
-    background: radial-gradient(ellipse 500px 200px at 15% 0%, rgba(244,196,48,.10), transparent 70%);
+    background: radial-gradient(ellipse 300px 400px at 0% 0%, rgba(244,196,48,.10), transparent 70%);
   }
-  .logo { font-family: var(--font-serif); font-size:27px; font-weight:600; letter-spacing:.3px; position:relative; z-index:1;
+  .sidebar-brand { padding:28px 26px 20px; position:relative; z-index:1; flex-shrink:0; }
+  .logo { font-family: var(--font-serif); font-size:27px; font-weight:600; letter-spacing:.3px;
     background:linear-gradient(135deg,var(--gold),var(--gold-light)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .header-right { display:flex; align-items:center; gap:24px; position:relative; z-index:1; }
-  .user-info { display:flex; flex-direction:column; align-items:flex-end; line-height:1.3; }
+
+  .tabbar { flex:1; background:transparent; border:none; display:flex; flex-direction:column; gap:3px;
+    padding:8px 16px; overflow-x:visible; overflow-y:auto; position:relative; z-index:1; }
+  .tab-item { display:flex; align-items:center; gap:11px; padding:11px 14px; border-radius:var(--radius-sm); color:rgba(255,255,255,.6);
+    font-size:13.5px; font-weight:600; white-space:nowrap; cursor:pointer; transition:.2s ease; border-left:3px solid transparent; }
+  .tab-item svg { width:17px; height:17px; flex-shrink:0; }
+  .tab-item:hover { color:var(--gold); background:rgba(244,196,48,.08); }
+  .tab-item.active { color:var(--gold); background:rgba(244,196,48,.14); font-weight:700; border-left-color:var(--gold); }
+
+  .sidebar-foot { padding:18px 20px 22px; border-top:1px solid rgba(244,196,48,.15); position:relative; z-index:1; flex-shrink:0; }
+  .sidebar-user { display:flex; align-items:center; gap:11px; margin-bottom:14px; }
+  .user-info { display:flex; flex-direction:column; align-items:flex-start; line-height:1.3; min-width:0; }
   .user-info .greet { font-size:12px; color:rgba(255,255,255,.5); }
-  .user-info .email { font-size:14px; color:#fff; font-weight:600; }
-  .avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-    display:flex; align-items:center; justify-content:center; color:var(--navy); font-weight:700; font-size:16px; flex-shrink:0;
+  .user-info .email { font-size:13px; color:#fff; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:150px; }
+  .avatar { width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+    display:flex; align-items:center; justify-content:center; color:var(--navy); font-weight:700; font-size:15px; flex-shrink:0;
     box-shadow:0 0 0 2px rgba(255,255,255,.15); }
-  .logout-btn { background:linear-gradient(135deg,var(--gold),var(--gold-dark)); color:var(--navy); border:none; padding:9px 20px;
+  .logout-btn { width:100%; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); color:var(--navy); border:none; padding:10px 20px;
     border-radius:var(--radius-sm); font-weight:700; font-size:13px; cursor:pointer; transition:.25s ease; letter-spacing:.02em; }
   .logout-btn:hover { transform:translateY(-2px); box-shadow:0 8px 18px rgba(244,196,48,.35); }
 
-  .tabbar { background:var(--navy-dark);
-    border-bottom:1px solid rgba(244,196,48,.15); display:flex; gap:6px; padding:10px 40px; overflow-x:auto; }
-  .tab-item { display:flex; align-items:center; gap:8px; padding:9px 16px; border-radius:var(--radius-sm); color:rgba(255,255,255,.6);
-    font-size:13px; font-weight:600; white-space:nowrap; cursor:pointer; transition:.2s ease; border-bottom:2px solid transparent; }
-  .tab-item svg { width:16px; height:16px; flex-shrink:0; }
-  .tab-item:hover { color:var(--gold); background:rgba(244,196,48,.08); }
-  .tab-item.active { color:var(--gold); background:rgba(244,196,48,.12); font-weight:700; border-bottom-color:var(--gold); }
+  /* ===== APP SHELL (everything right of the sidebar) ===== */
+  .app-shell { flex:1; min-width:0; display:flex; flex-direction:column; min-height:100vh; }
 
   /* ===== MAIN / SECTIONS ===== */
   .main-content { flex:1; padding:40px; display:flex; flex-direction:column; min-height:0; }
@@ -344,61 +349,71 @@
     .cms-grid { grid-template-columns:1fr; }
     .stats-grid { grid-template-columns:repeat(2,1fr); }
     .main-content { padding:24px; }
-    .topbar, .tabbar { padding-left:24px; padding-right:24px; }
+    .sidebar { width:210px; }
     .form-row { grid-template-columns:1fr; }
   }
   @media (max-width:767px) {
-    .topbar { padding:0 16px; }
-    .tabbar { padding:10px 16px; }
-    .main-content { padding:16px; }
+    body { flex-direction:column; }
+    .sidebar { width:100%; height:auto; position:static; flex-direction:row; align-items:center; }
+    .sidebar-brand { padding:16px; flex-shrink:0; }
+    .tabbar { flex-direction:row; overflow-x:auto; padding:8px; }
+    .tab-item { flex-shrink:0; }
+    .tab-item span.tab-label { display:none; }
+    .sidebar-foot { border-top:none; border-left:1px solid rgba(244,196,48,.15); padding:10px 14px; flex-shrink:0; }
+    .sidebar-user { margin-bottom:0; }
     .user-info { display:none; }
+    .logout-btn { width:auto; padding:8px 14px; }
+    .main-content { padding:16px; }
     .stats-grid { grid-template-columns:1fr; }
     .mi-label { width:100px; }
   }
 </style>
 </head>
 <body>
-  <div class="page-head">
-    <header class="topbar">
-      <div class="logo">Pinnacle</div>
-      <div class="header-right">
-        <div class="user-info"><span class="greet">Welcome back</span><span class="email" id="userEmail">Loading...</span></div>
-        <div class="avatar" id="userAvatar">P</div>
-        <button class="logout-btn" onclick="logout()">Logout</button>
-      </div>
-    </header>
+  <aside class="sidebar">
+    <div class="sidebar-brand"><div class="logo">Pinnacle</div></div>
+
     <nav class="tabbar" id="tabbar">
       <a class="tab-item active" href="#" data-section="dashboard">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
-        Dashboard
+        <span class="tab-label">Dashboard</span>
       </a>
       <a class="tab-item" href="#" data-section="pages">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        Pages
+        <span class="tab-label">Pages</span>
       </a>
       <a class="tab-item" href="#" data-section="menus">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        Menus
+        <span class="tab-label">Menus</span>
       </a>
       <a class="tab-item" href="#" data-section="contacts">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Contacts
+        <span class="tab-label">Contacts</span>
       </a>
       <a class="tab-item" href="#" data-section="quotes">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Quotes
+        <span class="tab-label">Quotes</span>
       </a>
       <a class="tab-item" href="#" data-section="media">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Media
+        <span class="tab-label">Media</span>
       </a>
       <a class="tab-item" href="#" data-section="settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        Settings
+        <span class="tab-label">Settings</span>
       </a>
     </nav>
-  </div>
 
+    <div class="sidebar-foot">
+      <div class="sidebar-user">
+        <div class="avatar" id="userAvatar">P</div>
+        <div class="user-info"><span class="greet">Welcome back</span><span class="email" id="userEmail">Loading...</span></div>
+      </div>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </aside>
+
+  <div class="app-shell">
   <main class="main-content">
 
     <!-- ================= DASHBOARD SECTION ================= -->
@@ -746,6 +761,7 @@
   </main>
 
   <footer class="footer">© 2026 Pinnacle Design | Build. All rights reserved.</footer>
+  </div>
 
   <!-- NEW PAGE MODAL -->
   <div class="modal-overlay" id="newPageModal">
