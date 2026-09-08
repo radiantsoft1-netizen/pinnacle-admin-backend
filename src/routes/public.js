@@ -7,7 +7,7 @@ import { cacheGet, cacheSet } from '../lib/cache.js';
 // visitor (see cms-sync.js) but change rarely - a short TTL cache turns
 // repeat requests within the window into a Map lookup instead of a DB
 // round-trip, without meaningfully risking stale content in a CMS this size.
-const CACHE_TTL_MS = 60 * 1000;
+const CACHE_TTL_MS = 10 * 60 * 1000;
 
 const router = express.Router();
 
