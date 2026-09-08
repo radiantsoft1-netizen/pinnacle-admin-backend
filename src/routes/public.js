@@ -1,5 +1,13 @@
 import express from 'express';
 import { pool } from '../db.js';
+import { contactFormLimiter, calculatorQuoteLimiter } from '../middleware/rateLimit.js';
+import { cacheGet, cacheSet } from '../lib/cache.js';
+
+// Settings and menus are re-fetched on every single page load by every
+// visitor (see cms-sync.js) but change rarely - a short TTL cache turns
+// repeat requests within the window into a Map lookup instead of a DB
+// round-trip, without meaningfully risking stale content in a CMS this size.
+const CACHE_TTL_MS = 60 * 1000;
 
 const router = express.Router();
 
@@ -93,11 +101,16 @@ router.get('/pages/:slug/sections', async (req, res) => {
 
 router.get('/menus/:location', async (req, res) => {
   try {
+    const cacheKey = `menu:${req.params.location}`;
+    const cached = cacheGet(cacheKey);
+    if (cached) return res.json(cached);
+
     const menuResult = await pool.query(
       `SELECT * FROM menus WHERE location = $1 AND status = 'published' ORDER BY id ASC LIMIT 1`,
       [req.params.location]
     );
     if (menuResult.rows.length === 0) {
+      cacheSet(cacheKey, [], CACHE_TTL_MS);
       return res.json([]); // no menu configured for this location yet — empty nav, not an error
     }
 
@@ -118,6 +131,7 @@ router.get('/menus/:location', async (req, res) => {
       }
     });
 
+    cacheSet(cacheKey, tree, CACHE_TTL_MS);
     res.json(tree);
   } catch (error) {
     console.error('Public get menu error:', error);
@@ -129,9 +143,13 @@ router.get('/menus/:location', async (req, res) => {
 
 router.get('/settings', async (req, res) => {
   try {
+    const cached = cacheGet('settings');
+    if (cached) return res.json(cached);
+
     const result = await pool.query('SELECT setting_key, setting_value FROM site_settings');
     const map = {};
     result.rows.forEach(row => { map[row.setting_key] = row.setting_value; });
+    cacheSet('settings', map, CACHE_TTL_MS);
     res.json(map);
   } catch (error) {
     console.error('Public get settings error:', error);
@@ -166,11 +184,20 @@ router.get('/media/:id', async (req, res) => {
 
 // ---------- FORMS ----------
 
-router.post('/contact', async (req, res) => {
+// Deliberately simple (RFC 5322 has no single "correct" regex, and this is
+// meant to catch obvious typos/junk, not exhaustively validate every edge
+// case) - "has an @ and a dot after it, no spaces" catches what "notanemail"
+// missed without rejecting real addresses.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+router.post('/contact', contactFormLimiter, async (req, res) => {
   try {
     const { name, email, phone, message, project_type } = req.body;
     if (!name || !email) {
       return res.status(400).json({ error: 'Name and email are required' });
+    }
+    if (!EMAIL_RE.test(email)) {
+      return res.status(400).json({ error: 'Please enter a valid email address' });
     }
 
     const result = await pool.query(
@@ -186,7 +213,7 @@ router.post('/contact', async (req, res) => {
   }
 });
 
-router.post('/calculator-quote', async (req, res) => {
+router.post('/calculator-quote', calculatorQuoteLimiter, async (req, res) => {
   try {
     const {
       project_type, project_scope, finish_level, condition, bathrooms, kitchens, services,
@@ -195,6 +222,9 @@ router.post('/calculator-quote', async (req, res) => {
 
     if (!customer_email) {
       return res.status(400).json({ error: 'customer_email is required' });
+    }
+    if (!EMAIL_RE.test(customer_email)) {
+      return res.status(400).json({ error: 'Please enter a valid email address' });
     }
 
     const result = await pool.query(

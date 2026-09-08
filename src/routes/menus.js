@@ -1,6 +1,12 @@
 import express from 'express';
 import { pool } from '../db.js';
 import { requireAuth } from '../middleware/auth.js';
+import { cacheDelete } from '../lib/cache.js';
+
+// Item-level writes don't carry the menu's `location`, so rather than look
+// it up just to build a precise key, clear every cached menu - cheap, and
+// menu edits are infrequent enough that this is never a hot path.
+const invalidateMenus = () => cacheDelete('menu:');
 
 const router = express.Router();
 
@@ -59,6 +65,7 @@ router.post('/', async (req, res) => {
       [name, slug, location || 'header', description || null]
     );
 
+    invalidateMenus();
     res.status(201).json(result.rows[0]);
   } catch (error) {
     console.error('Create menu error:', error);
@@ -85,6 +92,7 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ error: 'Menu not found' });
     }
 
+    invalidateMenus();
     res.json({ success: true, message: 'Menu updated successfully', menu: result.rows[0] });
   } catch (error) {
     console.error('Update menu error:', error);
@@ -130,6 +138,7 @@ router.post('/:id/duplicate', async (req, res) => {
     }
 
     await client.query('COMMIT');
+    invalidateMenus();
     res.status(201).json(newMenu.rows[0]);
   } catch (error) {
     await client.query('ROLLBACK');
@@ -147,6 +156,7 @@ router.delete('/:id', async (req, res) => {
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Menu not found' });
     }
+    invalidateMenus();
     res.json({ success: true, message: 'Menu deleted' });
   } catch (error) {
     console.error('Delete menu error:', error);
@@ -177,6 +187,7 @@ router.post('/:id/items', async (req, res) => {
       [req.params.id, label, url || '/', icon || null, order, parent_id || null]
     );
 
+    invalidateMenus();
     res.status(201).json(result.rows[0]);
   } catch (error) {
     console.error('Add menu item error:', error);
@@ -203,6 +214,7 @@ router.put('/:id/items/:itemId', async (req, res) => {
       return res.status(404).json({ error: 'Menu item not found' });
     }
 
+    invalidateMenus();
     res.json({ success: true, item: result.rows[0] });
   } catch (error) {
     console.error('Update menu item error:', error);
@@ -228,6 +240,7 @@ router.put('/:id/items-reorder', async (req, res) => {
     }
     await client.query('COMMIT');
 
+    invalidateMenus();
     res.json({ success: true, message: 'Order updated' });
   } catch (error) {
     await client.query('ROLLBACK');
@@ -248,6 +261,7 @@ router.delete('/:id/items/:itemId', async (req, res) => {
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Menu item not found' });
     }
+    invalidateMenus();
     res.json({ success: true, message: 'Item removed' });
   } catch (error) {
     console.error('Delete menu item error:', error);

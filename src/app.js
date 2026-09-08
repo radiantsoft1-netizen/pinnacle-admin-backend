@@ -18,6 +18,12 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// Vercel sits in front of this app as a proxy - without this, every
+// request looks like it comes from the same internal IP, which makes
+// IP-based rate limiting either useless (shared limit for all visitors)
+// or wrong. `1` trusts exactly one hop (Vercel's own edge).
+app.set('trust proxy', 1);
+
 // Middleware
 // CORS_ORIGIN may list multiple comma-separated origins (production site,
 // staging, etc). Localhost is always allowed too, for local frontend dev

@@ -24,6 +24,41 @@ const upload = multer({
   }
 });
 
+// The Content-Type header multer's fileFilter sees is whatever the client
+// claims - trivially spoofable (confirmed: a plain-text file named
+// "malicious.exe" with Content-Type set to "image/jpeg" was accepted before
+// this check existed). This verifies the actual file bytes instead. Runs
+// after multer buffers the upload, since memoryStorage's fileFilter fires
+// before the body is available to inspect.
+function detectRealFileType(buffer) {
+  if (!buffer || buffer.length < 12) return null;
+
+  if (buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) return 'image/jpeg';
+  if (buffer.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return 'image/png';
+  if (buffer.slice(0, 4).toString('ascii') === 'GIF8') return 'image/gif';
+  if (buffer.slice(0, 4).toString('ascii') === 'RIFF' && buffer.slice(8, 12).toString('ascii') === 'WEBP') return 'image/webp';
+  if (buffer.slice(0, 4).toString('ascii') === '%PDF') return 'application/pdf';
+
+  // SVG is plain-text XML, not a fixed binary signature - look for the
+  // opening tag within the first chunk (allowing a leading XML/BOM prolog).
+  const head = buffer.slice(0, 512).toString('utf8').trimStart().toLowerCase();
+  if (head.startsWith('<?xml') || head.startsWith('<svg')) {
+    if (head.includes('<svg')) return 'image/svg+xml';
+  }
+
+  return null;
+}
+
+// A real file's detected type doesn't have to match the client's claimed
+// mimetype exactly (e.g. some tools mislabel webp as octet-stream) - it
+// just has to be ONE of the allowed real types. Rejects anything whose
+// actual bytes aren't a recognized image/PDF signature, regardless of what
+// the request claimed.
+function isAllowedRealFile(buffer) {
+  const real = detectRealFileType(buffer);
+  return real !== null && ALLOWED_TYPES.has(real);
+}
+
 function blobPathname(originalname) {
   const ext = path.extname(originalname).toLowerCase();
   const base = path.basename(originalname, ext)
@@ -68,17 +103,22 @@ router.post('/upload', (req, res) => {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
+    const realType = detectRealFileType(req.file.buffer);
+    if (!realType || !ALLOWED_TYPES.has(realType)) {
+      return res.status(400).json({ error: 'File content does not match an allowed image or PDF type. The upload was rejected.' });
+    }
+
     let blob;
     try {
       blob = await put(blobPathname(req.file.originalname), req.file.buffer, {
         access: 'public',
-        contentType: req.file.mimetype,
+        contentType: realType,
       });
 
       const result = await pool.query(
         `INSERT INTO media (filename, file_url, alt_text, file_type, file_size, uploaded_by)
          VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-        [req.file.originalname, blob.url, req.body.alt_text || '', req.file.mimetype, req.file.size, req.user.id]
+        [req.file.originalname, blob.url, req.body.alt_text || '', realType, req.file.size, req.user.id]
       );
       res.status(201).json(result.rows[0]);
     } catch (error) {

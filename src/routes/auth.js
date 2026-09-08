@@ -2,11 +2,12 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { pool } from '../db.js';
+import { loginLimiter } from '../middleware/rateLimit.js';
 
 const router = express.Router();
 
 // LOGIN ROUTE
-router.post('/login', async (req, res) => {
+router.post('/login', loginLimiter, async (req, res) => {
   try {
     const { email, password } = req.body;
 

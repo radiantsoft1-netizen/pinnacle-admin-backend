@@ -1,6 +1,7 @@
 import express from 'express';
 import { pool } from '../db.js';
 import { requireAuth } from '../middleware/auth.js';
+import { cacheDelete } from '../lib/cache.js';
 
 const router = express.Router();
 
@@ -38,6 +39,7 @@ router.put('/:key', async (req, res) => {
       [req.params.key, String(value), description || null, setting_type]
     );
 
+    cacheDelete('settings');
     res.json({ success: true, setting: result.rows[0] });
   } catch (error) {
     console.error('Update setting error:', error);
@@ -66,6 +68,7 @@ router.put('/', async (req, res) => {
     }
     await client.query('COMMIT');
 
+    cacheDelete('settings');
     res.json({ success: true, message: 'Settings saved' });
   } catch (error) {
     await client.query('ROLLBACK');
@@ -83,6 +86,7 @@ router.delete('/:key', async (req, res) => {
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Setting not found' });
     }
+    cacheDelete('settings');
     res.json({ success: true, message: 'Setting deleted' });
   } catch (error) {
     console.error('Delete setting error:', error);
